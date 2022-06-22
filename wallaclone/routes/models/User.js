@@ -1,13 +1,28 @@
 'use strict';
 
+const bcrypt = require('bcrypt');
+const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
 
-const usuarioSchema = mongoose.Schema({
+// esquema creado
+const userSchema = mongoose.Schema({
+    email: { type: String, unique: true },
     name: String,
-    passwoer: String
+    password: String
     
 });
 
-const Agente = mongoose.model('Usuario', usuarioSchema);
+// método estatico
+userSchema.statics.hashPassword = function(passwordClear) {
+    return bcrypt.hash(passwordClear, 7);
+};
 
-module.exports = Usuario;
+// método de instancia
+
+userSchema.methods.comparePasword = function(passwordClear) {
+    return bcrypt.compare(passwordClear, this.password);
+}
+
+const User = mongoose.model('User', userSchema);
+
+module.exports = User;

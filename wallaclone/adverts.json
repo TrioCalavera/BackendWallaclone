@@ -1,0 +1,57 @@
+[
+    {
+        "_id": "61f5380128564db1189e8670",
+        "name": "nintendo wii",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "./public/images/productos/wii.jpg",
+        "__v": 0
+    },
+    {
+        "_id": "61f5386c4d4bc2859ff4cabd",
+        "name": "calzado de seguridad gyear",
+        "sale": false,
+        "pice": 25,
+        "tags": [
+            "lifestyle,work"
+        ],
+        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "__v": 0
+    },
+    {
+        "_id": "61f54a3e010415b3343887c4",
+        "name": "ford grand cmax",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor,work"
+        ],
+        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "__v": 0
+    },
+    {
+        "_id": "61f54aca4de7191a46531504",
+        "name": "iMac 2015",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle,work"
+        ],
+        "image": "./public/images/productos/imac2015.jpg",
+        "__v": 0
+    },
+    {
+        "_id": "61f54b074de7191a46531507",
+        "name": "iPhone SE 2020",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle,work,mobile"
+        ],
+        "image": "./public/images/productos/iphonese2020.jpg",
+        "__v": 0
+    }
+]
