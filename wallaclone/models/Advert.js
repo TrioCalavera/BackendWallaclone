@@ -4,14 +4,16 @@ const mongoose = require('mongoose');
 
 // definir un esquema
 
-const advertSchema = mongoose.Schema({
+const advertSchema = mongoose.Schema(
+    {
     name: {type : String, index: true },
     image: String,
     Description: String, 
     Price: { type: Number, index: true }, 
     sale: { type: Boolean, index: true },
     tags: { type: [String], index: true}
-});
+    },{},
+    );
 
 // tags permitidos
 
