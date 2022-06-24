@@ -6,7 +6,7 @@ const readline = require('readline');
 
 const dbConnection = require('./lib/connectMongoose');
 
-const Adverts = require('./models/Adverts');
+const Adverts = require('./models/Advert');
 const User = require('./models/User');
 
 dbConnection.once('open', () => {
@@ -63,7 +63,7 @@ async function initAdverts() {
   const articuloData = JSON.parse(data);
 
   // crear articulos iniciales
-  const articulos = await Articulo.insertMany(articuloData);
+  const articulos = await Adverts.insertMany(articuloData);
   console.log(`Creados ${articulos.length} articulos.`);
 }
 
