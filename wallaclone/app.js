@@ -9,7 +9,10 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+// instalacion de cors
+var cors = require('cors');
 
+app.use(cors());
 require('./lib/connectMongoose');
 
 // view engine setup
