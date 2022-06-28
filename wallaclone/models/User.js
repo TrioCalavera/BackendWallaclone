@@ -17,7 +17,6 @@ const userSchema = mongoose.Schema(
 
 // método estatico
 userSchema.statics.hashPassword = function(passwordClear) {
-    console.log(passwordClear);
     return bcrypt.hash(passwordClear, 7);
 };
 
