@@ -65,6 +65,18 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+router.post('/', async (req, res, next) =>{
+  try {
+      const advertData = req.body;
+
+      const advert = new Advert(advertData);
+
+      const newAdvert = await advert.save()
+      res.status(201).json({ result: newAdvert})
+  } catch (err) {
+      next(err);
+  }
+})
 
 
 module.exports = router;
