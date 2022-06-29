@@ -8,8 +8,8 @@ const advertSchema = mongoose.Schema(
     {
     name: {type : String, index: true },
     image: String,
-    Description: String, 
-    Price: { type: Number, index: true }, 
+    description: String, 
+    price: { type: Number, index: true }, 
     sale: { type: Boolean, index: true },
     tags: { type: [String], index: true}
     },{},
