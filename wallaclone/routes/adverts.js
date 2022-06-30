@@ -78,5 +78,45 @@ router.post('/', async (req, res, next) =>{
   }
 })
 
+// DEL /:id
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    await Advert.deleteOne({ _id: id });
+
+    res.json();
+  } catch (err) {
+    next(err)
+  }
+
+})
+
+// PUT /:id
+router.put('/:id', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const advertData = req.body;
+
+    let updatedAdvert
+    try {
+      updatedAdvert = await Advert.findByIdAndUpdate(id, advertData, {
+        new: true 
+      });
+    } catch (err) {
+      next(createError(422, 'invalid id'));
+      return;
+    }
+
+    if (!updatedAdvert) {
+      next(createError(404));
+      return;
+    }
+
+    res.json({ result: updatedAdvert });
+  } catch (err) {
+    next(err);
+  }
+});
 
 module.exports = router;
