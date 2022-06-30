@@ -1,7 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-
 mongoose.connection.on('error', err => {
   console.log('Connection Error to MongoDB', err);
   process.exit(1);

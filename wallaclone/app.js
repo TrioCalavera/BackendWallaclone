@@ -7,6 +7,7 @@ var expressValidator = require('express-validator')
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var advertsRouter = require('./routes/adverts')
 
 var app = express();
 // instalacion de cors
@@ -28,6 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/adverts', advertsRouter)
+app.post('/adverts', advertsRouter);
+app.put('/adverts', advertsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
