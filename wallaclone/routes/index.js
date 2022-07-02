@@ -9,14 +9,14 @@ router.get('/', function(req, res, next) {
 
 // Filtros por query string por tags, precios, nombre
 
-router.get('/tags/:tags(work|lifestyle|mobile|motor|IT)/price/:price?/name/:name?', (req, res, next) => {
-  const tags = req.params.tags;
+router.get('/filterquerystring', (req, res, next) => {
+  const tags = req.query.tags;
   //const color = req.params.color;
-  //const price = req.params.price;
-  //const name = req.params.name;
+  const price = req.query.price;
+  const name = req.query.name;
+  console.log(req.query);
 
-  res.send(`ok tags ${tags}`) //color, price, name} )
-})
+  res.send(`ok tags ${tags} name ${name} price ${price}`); //price, name} )
+});
 
 module.exports = router;
-////price/:price?/name/:name?
