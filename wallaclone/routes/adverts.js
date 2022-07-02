@@ -5,7 +5,7 @@ var router = express.Router();
 const Advert = require('../models/Advert')
 
 /* GET users listing. */
-router.get('/', async(req, res, next) => {
+router.get('/v1/api/', async(req, res, next) => {
   try{
     const name = req.query.name;
     const image = req.query.image;
@@ -48,7 +48,7 @@ router.get('/', async(req, res, next) => {
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get('/v1/api/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
 
@@ -65,7 +65,7 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.post('/', async (req, res, next) =>{
+router.post('/v1/api/', async (req, res, next) =>{
   try {
       const advertData = req.body;
 
@@ -79,7 +79,7 @@ router.post('/', async (req, res, next) =>{
 })
 
 // DEL /:id
-router.delete('/:id', async (req, res, next) => {
+router.delete('/v1/api/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
 
@@ -93,7 +93,7 @@ router.delete('/:id', async (req, res, next) => {
 })
 
 // PUT /:id
-router.put('/:id', async (req, res, next) => {
+router.put('/v1/api/:id', async (req, res, next) => {
   try {
     const id = req.params.id;
     const advertData = req.body;
