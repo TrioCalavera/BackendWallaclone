@@ -90,4 +90,39 @@ router.get("/:sale", async (req, res, next) => {
   }
 });
 
+// GET /adverts:tags
+// ver con expresiones regulares para controlar cuando son varios, o ver como se recorre el array
+router.get("/:tags", async (req, res, next) => {
+	try {
+		const tags = req.params.tags;
+		const advert = await Advert.find({ tags: tags });
+    console.log(advert);
+
+		if(!advert) {
+			next(createError(404));
+			return;
+		}
+		res.json({ result: advert });
+	} catch (err) {
+		next(err);
+	}
+});
+
+// GET /adverts:price
+// ver como solucionar que el tema de rango de precio
+router.get("/:price", async (req, res, next) => {
+	try {
+		const price = req.params.price;
+		const advert = await Advert.find({ price: price });
+
+		if(!advert) {
+			next(createError(404));
+			return;
+		}
+		res.json({ result: advert });
+	} catch (err) {
+		next(err);
+	}
+});
+
 module.exports = router;
