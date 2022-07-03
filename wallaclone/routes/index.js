@@ -54,14 +54,40 @@ router.get("/adverts", async (req, res, next) => {
   }
 });
 
-// Filtros por query string por tags, precios, nombre
-// router.get("/adverts", (req, res, next) => {
-//   const tags = req.query.tags;
-//   const price = req.query.price;
-//   const name = req.query.name;
-//   const sale = req.query.sale;
-//   console.log(req.query);
+// GET /adverts/:name
+router.get("/adverts/:name", async (req, res, next) => {
+  try {
+    //CUIDADO!!!
+    //Expresión regular para controlar acentos, espacios, ect.
+    const name = req.params.name;
+    const advert = await Advert.find({ name: name });
 
-//   // res.send(`ok tags ${tags} name ${name} price ${price}`); //price, name} )
-// });
+    if (!advert) {
+      next(createError(404));
+      return;
+    }
+    res.json({ result: advert });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET /adverts?sale=false
+// GET /adverts?sale=true
+router.get("/:sale", async (req, res, next) => {
+  try {
+    const sale = req.params.sale;
+    const advert = await Advert.find({ sale: sale });
+    console.log(advert);
+
+    if (!advert) {
+      next(createError(404));
+      return;
+    }
+    res.json({ result: advert });
+  } catch (err) {
+    next(err);
+  }
+});
+
 module.exports = router;
