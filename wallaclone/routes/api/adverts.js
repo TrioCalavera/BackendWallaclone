@@ -62,10 +62,24 @@ router.get("/", async (req, res, next) => {
     //   if (tags) {
     //     filtros.tags = tags;
     //   }
-
-      if (tags) {
-          filtros.tags = { $in: req.query.tags };
+      console.log(req.query.tags);
+    if (typeof req.query.tags !== 'undefined' && req.query.tags !== ',') {
+        
+        if (req.query.tags.indexOf(',') !== -1) {
+          filtros.tags = {};
+          let rango = req.query.tags.split(',');
+        
+        console.log(rango);
+        filtros.tags = { "$in": rango };
         }
+      
+      }else{
+        filtros.tags = { $in: req.query.tags};
+      }
+
+    //   if (tags) {
+    //       filtros.tags = { $in: rango };
+    //     }
 
         
       console.log('/get',filtros);
@@ -77,22 +91,22 @@ router.get("/", async (req, res, next) => {
     }
   });
 
-  router.get("/:tags", async (req, res, next) => {
-    try {
-        const tags = req.params.tags;
-        console.log(tags);
-        const advert = await Advert.find({ tags: {"$in":[tags]} });
-    console.log(advert);
+//   router.get("/:tags", async (req, res, next) => {
+//     try {
+//         const tags = req.params.tags;
+//         console.log(tags);
+//         const advert = await Advert.find({ tags: {"$in":tag} });
+//        console.log(advert);
 
-        if(!advert) {
-            next(createError(404));
-            return;
-        }
-        res.json({ result: advert });
-    } catch (err) {
-        next(err);
-    }
-});
+//         if(!advert) {
+//             next(createError(404));
+//             return;
+//         }
+//         res.json({ result: advert });
+//     } catch (err) {
+//         next(err);
+//     }
+// });
   
 
 //GET /api/adverts
