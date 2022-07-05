@@ -28,10 +28,10 @@ router.get("/", async (req, res, next) => {
       // Obj filtros
       const filtros = {};
   
-    //  
+    //  filtro por nombres
     
     if (typeof req.query.name !== 'undefined') {
-        filtros.name = new RegExp('^' + req.query.name, 'i');
+        filtros.name = new RegExp('\\b' + req.query.name + '\\b', 'i');
       }
   
   
@@ -59,10 +59,16 @@ router.get("/", async (req, res, next) => {
         filtros.sale = sale;
       }
   
+    //   if (tags) {
+    //     filtros.tags = tags;
+    //   }
+
       if (tags) {
-        filtros.tags = tags;
-      }
-      console.log(filtros);
+          filtros.tags = { $in: req.query.tags };
+        }
+
+        
+      console.log('/get',filtros);
       // const adverts = await Advert.find();
       const adverts = await Advert.lista(filtros, skip, limit, select, sort);
       res.json({ result: adverts });
@@ -70,6 +76,23 @@ router.get("/", async (req, res, next) => {
       next(error);
     }
   });
+
+  router.get("/:tags", async (req, res, next) => {
+    try {
+        const tags = req.params.tags;
+        console.log(tags);
+        const advert = await Advert.find({ tags: {"$in":[tags]} });
+    console.log(advert);
+
+        if(!advert) {
+            next(createError(404));
+            return;
+        }
+        res.json({ result: advert });
+    } catch (err) {
+        next(err);
+    }
+});
   
 
 //GET /api/adverts
