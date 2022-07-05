@@ -31,7 +31,7 @@ router.get("/", async (req, res, next) => {
     //  
     
     if (typeof req.query.name !== 'undefined') {
-        filtros.nombre = new RegExp('^' + req.query.name, 'i');
+        filtros.name = new RegExp('^' + req.query.name, 'i');
       }
   
   
