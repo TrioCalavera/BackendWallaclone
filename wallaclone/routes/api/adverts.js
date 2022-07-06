@@ -73,9 +73,9 @@ router.get("/", async (req, res, next) => {
         filtros.tags = { "$in": rango };
         }
       
-      }else{
-        filtros.tags = { $in: req.query.tags};
-      }
+      }//else{
+        //filtros.tags = { $in: req.query.tags};
+      //}
 
     //   if (tags) {
     //       filtros.tags = { $in: rango };
