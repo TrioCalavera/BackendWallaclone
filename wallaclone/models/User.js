@@ -1,7 +1,7 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
-const nodemailer = require('nodemailer');
+const emailTransportconfigure = require('../lib/emailTransportConfigure');
 const mongoose = require('mongoose');
 
 // esquema creado
@@ -34,6 +34,28 @@ userSchema.statics.getList = function (filters, skip, limit, select, sort) {
 userSchema.methods.comparePasword = function(passwordClear) {
     return bcrypt.compare(passwordClear, this.password);
 } 
+
+userSchema.methods.enviarEmail =async function(asunto, cuerpo) {
+    //crear el transport
+    const transport = emailTransportconfigure();
+
+    // enviar el mail
+    const result = await transport.sendMail({
+        from: process.env.EMAIL_SERVICE_FROM,
+        to: this.email,
+        subject: asunto,
+        html: cuerpo
+    });
+
+    console.log("Message sent: %s", result.messageId);
+  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
+
+  // Preview only available when sending through an Ethereal account
+  console.log("Preview URL: %s", nodemailer.getTestMessageUrl(result));
+  // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
+
+    return result; 
+}
 
 const User = mongoose.model('User', userSchema);
 
