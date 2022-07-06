@@ -3,21 +3,20 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
 const router = express.Router()
-const { User } = require('../../models')
-const User = require('../models/User')
+const User = require('../../models/User')
 
 // POST /authenticate
 router.post('/', async (req, res, next) => {
   try {
     const email = req.body.email
     const password = req.body.password
+    
+    //Buscamos el usuario
+    const user = await User.findOne({ email });
+    //Vemos que el password sea el correcto
+    var isValid = await user.comparePasword(password);
 
-    // hacemos un hash de la password
-    const hashedPassword = Usuario.hashPassword(password)
-
-    const user = await User.findOne({ email: email, password: hashedPassword })
-
-    if (!user) {
+    if (!isValid) {
       // Respondemos que no son validas las credenciales
       res.json({ok: false, error: 'invalid credentials'})
       return

@@ -2,7 +2,7 @@ var express = require('express');
 const createError = require('http-errors');
 var router = express.Router();
 
-const User = require('../models/User')
+const User = require('../../models/User')
 
 /* GET users listing. */
 router.get('/', async(req, res, next) => {
