@@ -1,8 +1,9 @@
 var express = require('express');
 const createError = require('http-errors');
 var router = express.Router();
-
+const jwt = require('jsonwebtoken')
 const User = require('../../models/User')
+const expressValidator = require('express-validator')
 
 /* GET users listing. */
 router.get('/', async(req, res, next) => {
@@ -54,5 +55,31 @@ router.get('/:id', async (req, res, next) => {
     next(err);
   }
 });
+
+router.post('/', async (req, res, next) =>{
+  try {
+      const userData = req.body;
+
+      const email = req.body.email
+
+      
+
+      const user = new User(userData);
+
+      const newUser = await user.save()
+      
+      jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: '2d'
+      }, (err, token) => {
+        if (err) {
+          return next(err)
+        }
+        // respondemos con un JWT
+        res.status(201).json({ result: newUser, ok: true, token: token})
+      })
+    } catch (err) {
+      next(err)
+    }
+  })
 
 module.exports = router;
