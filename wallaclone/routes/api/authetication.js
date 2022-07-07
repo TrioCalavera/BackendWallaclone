@@ -8,8 +8,8 @@ const User = require('../../models/User')
 // POST /authenticate
 router.post('/', async (req, res, next) => {
   try {
-    const email = req.body.email
-    const password = req.body.password
+    const email = req.body.email;
+    const password = req.body.password;
     
     //Buscamos el usuario
     const user = await User.findOne({ email });
