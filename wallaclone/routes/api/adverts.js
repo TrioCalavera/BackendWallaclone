@@ -23,7 +23,7 @@ router.get("/", async (req, res, next) => {
     const select = req.query.select;
 
     //Field to sort
-    const sort = req.query.sort || 'create';
+    const sort = req.query.sort || "create";
 
     // Obj filtros
     const filtros = {};
