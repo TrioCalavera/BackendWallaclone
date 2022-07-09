@@ -1,4 +1,4 @@
-//"use strict";
+"use strict";
 
 const express = require("express");
 const Advert = require("../../models/Advert");
@@ -58,28 +58,26 @@ router.get("/", async (req, res, next) => {
       if (sale) {
         filtros.sale = sale;
       }
-  
-    //   if (tags) {
-    //     filtros.tags = tags;
-    //   }
-      console.log(req.query.tags);
-    if (typeof req.query.tags !== 'undefined' && req.query.tags !== ',') {
-        
-        if (req.query.tags.indexOf(',') !== -1) {
-          filtros.tags = {};
-          let rango = req.query.tags.split(',');
-        
-        console.log(rango);
-        filtros.tags = { "$in": rango };
-        }
-      
-      }//else{
-        //filtros.tags = { $in: req.query.tags};
-      //}
 
-    //   if (tags) {
-    //       filtros.tags = { $in: rango };
-    //     }
+
+      if (tags) {
+        filtros.tags = { $in: tags };
+      }
+  
+    //       // filter Tags
+    // if (typeof req.query.tags !== "undefined" && req.query.tags !== ",") {
+    //   if (req.query.tags.indexOf(",") !== -1) {
+    //     filtros.tags = {};
+    //     let rango = req.query.tags.split(",");
+
+    //     console.log(rango);
+    //     filtros.tags = { $in: rango };
+    //   }
+    // }
+
+    // if (tags) {
+    //   filtros.tags = tags;
+    // }
 
         
       console.log('/get',filtros);
