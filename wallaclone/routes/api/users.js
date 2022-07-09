@@ -1,12 +1,13 @@
-var express = require('express');
-const createError = require('http-errors');
+var express = require("express");
+const createError = require("http-errors");
 var router = express.Router();
-
-const User = require('../../models/User')
+const jwt = require("jsonwebtoken");
+const User = require("../../models/User");
+const expressValidator = require("express-validator");
 
 /* GET users listing. */
-router.get('/', async(req, res, next) => {
-  try{
+router.get("/", async (req, res, next) => {
+  try {
     const email = req.query.email;
     const name = req.query.name;
     const password = req.query.password;
@@ -33,12 +34,12 @@ router.get('/', async(req, res, next) => {
     const users = await User.getList(filters, skip, limit, select, sort);
 
     res.status(200).json({ results: users });
-  }catch(err){
-    next(err)
+  } catch (err) {
+    next(err);
   }
 });
 
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
 
@@ -50,6 +51,49 @@ router.get('/:id', async (req, res, next) => {
     }
 
     res.json({ result: user });
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.post("/", async (req, res, next) => {
+  try {
+    const userData = req.body;
+
+    const email = req.body.email;
+
+    const user = new User(userData);
+
+    const newUser = await user.save();
+
+    jwt.sign(
+      { _id: user._id },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "2d",
+      },
+      (err, token) => {
+        if (err) {
+          return next(err);
+        }
+        // respondemos con un JWT
+        res.status(201).json({ result: newUser, ok: true, token: token });
+      }
+    );
+  } catch (err) {
+    next(err);
+  }
+});
+
+// DELETE /users/:id
+// Elimina un usuario
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    await User.deleteOne({ _id: id });
+
+    res.json();
   } catch (err) {
     next(err);
   }
