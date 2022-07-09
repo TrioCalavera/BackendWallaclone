@@ -45,7 +45,6 @@ router.get("/", async (req, res, next) => {
           filtros.price.$lte = rango[1];
         }
       } else {
-        console.log(price);
         filtros.price = price;
       }
     }
@@ -57,12 +56,8 @@ router.get("/", async (req, res, next) => {
 
     // filter Tags
     if (tags) {
-      filtros.tags = { $in: tags };
-      console.log(Advert.allowedTags());
-      //   let arrayTags = tags.split(",");
+      filtros.tags = new RegExp("\\b" + tags + "\\b", "i");
     }
-
-    console.log("filtros", filtros);
 
     const adverts = await Advert.lista(filtros, skip, limit, select, sort);
     res.json({ result: adverts });
