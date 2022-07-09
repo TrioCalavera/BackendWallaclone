@@ -1,6 +1,7 @@
 [
     {
         "name": "nintendo wii",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
         "sale": true,
         "price": 29.99,
         "tags": [
@@ -10,6 +11,7 @@
     },
     {
         "name": "calzado de seguridad gyear",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
         "sale": false,
         "price": 25,
         "tags": [
@@ -19,6 +21,7 @@
     },
     {
         "name": "ford grand cmax",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
         "sale": true,
         "price": 4500,
         "tags": [
@@ -27,8 +30,8 @@
         "image": "./public/images/productos/fordgrnadcmax.jpg"
     },
     {
-        "_id": "61f54aca4de7191a46531504",
         "name": "iMac 2015",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
         "sale": true,
         "price": 750,
         "tags": [
@@ -39,6 +42,7 @@
     },
     {
         "name": "iPhone SE 2020",
+        "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
         "sale": true,
         "price": 399,
         "tags": [
