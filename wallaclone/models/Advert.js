@@ -11,6 +11,7 @@ const advertSchema = mongoose.Schema(
     price: { type: Number, index: true },
     sale: { type: Boolean, index: true },
     tags: { type: [String], index: true },
+    create: { type: Number, index: true },
   },
   {}
 );

@@ -11,6 +11,7 @@ router.get("/", async (req, res, next) => {
     const price = req.query.price;
     const name = req.query.name;
     const sale = req.query.sale;
+    const create = parseInt(req.query.create);
 
     // Pagination
     const skip = req.query.limit;
@@ -57,6 +58,13 @@ router.get("/", async (req, res, next) => {
     // filter Tags
     if (tags) {
       filtros.tags = new RegExp("\\b" + tags + "\\b", "i");
+    }
+
+    // REVISAR POR QUE DA ERROR AL USAR $GTE
+    // Filter Create
+    if (create) {
+      // filtros.create.$gte = create;
+      filtros.create = create;
     }
 
     const adverts = await Advert.lista(filtros, skip, limit, select, sort);
