@@ -87,4 +87,18 @@ router.post('/', async (req, res, next) =>{
   }
 })
 
+// DEL /:id
+router.delete('/', async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    await Advert.deleteOne({ _id: id });
+
+    res.json();
+  } catch (err) {
+    next(err)
+  }
+
+})
+
 module.exports = router;
