@@ -54,5 +54,285 @@
         ],
         "image": "./public/images/productos/iphonese2020.jpg",
         "create": 1641718689000
+    },
+    {
+        "name": "nintendo wii",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "./public/images/productos/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "calzado de seguridad gyear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "ford grand cmax",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor","work"
+        ],
+        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "image": "./public/images/productos/imac2015.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle","work","mobile"
+        ],
+        "image": "./public/images/productos/iphonese2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "nintendo wii",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "./public/images/productos/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "calzado de seguridad gyear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "ford grand cmax",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor","work"
+        ],
+        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "image": "./public/images/productos/imac2015.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle","work","mobile"
+        ],
+        "image": "./public/images/productos/iphonese2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "nintendo wii",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "./public/images/productos/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "calzado de seguridad gyear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "ford grand cmax",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor","work"
+        ],
+        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "image": "./public/images/productos/imac2015.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle","work","mobile"
+        ],
+        "image": "./public/images/productos/iphonese2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "nintendo wii",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "./public/images/productos/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "calzado de seguridad gyear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "ford grand cmax",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor","work"
+        ],
+        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "image": "./public/images/productos/imac2015.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle","work","mobile"
+        ],
+        "image": "./public/images/productos/iphonese2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "nintendo wii",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "./public/images/productos/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "calzado de seguridad gyear",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "ford grand cmax",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor","work"
+        ],
+        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle","work"
+        ],
+        "image": "./public/images/productos/imac2015.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle","work","mobile"
+        ],
+        "image": "./public/images/productos/iphonese2020.jpg",
+        "create": 1641718689000
     }
 ]

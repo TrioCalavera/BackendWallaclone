@@ -17,13 +17,13 @@ router.get("/", async (req, res, next) => {
     const skip = req.query.limit;
 
     // Limits the amount
-    const limit = req.query.limit;
+    const limit = parseInt(req.query.limit) || 15;
 
     //Fields to show
     const select = req.query.select;
 
     //Field to sort
-    const sort = req.query.sort;
+    const sort = req.query.sort || 'create';
 
     // Obj filtros
     const filtros = {};
