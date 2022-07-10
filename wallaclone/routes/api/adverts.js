@@ -74,11 +74,8 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/tags", (req, res, next) => {
-  console.log('test');
   const adverts = Advert.allowedTags();
-  console.log(adverts);
   res.json({adverts});
-
 })
 
 // Traer 1 anuncio
