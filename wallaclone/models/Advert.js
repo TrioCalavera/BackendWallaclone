@@ -29,7 +29,7 @@ advertSchema.statics.lista = function (filtros, skip, limit, select, sort) {
 
 // tags permitidos
 advertSchema.statics.allowedTags = function () {
-  return ["work", "lifestyle", "mobile", "motor", "IT"];
+  return ["work", "lifestyle", "mobile", "motor", "it"];
 };
 
 var Advert = mongoose.model("Advert", advertSchema);
