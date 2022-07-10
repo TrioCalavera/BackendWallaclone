@@ -7,7 +7,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "/static/media/wii.jpg",
+        "image": "",
         "create": 1641714689000
     },
     {
@@ -16,9 +16,10 @@
         "sale": false,
         "price": 25,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "imagen": "",
         "create": 1641715689000
     },
     {
@@ -27,9 +28,10 @@
         "sale": true,
         "price": 4500,
         "tags": [
-            "motor","work"
+            "motor",
+            "work"
         ],
-        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "image": "",
         "create": 1641716689000
     },
     {
@@ -38,9 +40,10 @@
         "sale": true,
         "price": 750,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "image": "./public/images/productos/imac2015.jpg",
+        "image": "",
         "create": 1641717689000,
         "__v": 0
     },
@@ -50,9 +53,11 @@
         "sale": true,
         "price": 399,
         "tags": [
-            "lifestyle","work","mobile"
+            "lifestyle",
+            "work",
+            "mobile"
         ],
-        "image": "./public/images/productos/iphonese2020.jpg",
+        "image": "",
         "create": 1641718689000
     },
     {
@@ -63,7 +68,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/productos/wii.jpg",
+        "image": "",
         "create": 1641714689000
     },
     {
@@ -72,9 +77,10 @@
         "sale": false,
         "price": 25,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "imagen": "",
         "create": 1641715689000
     },
     {
@@ -83,9 +89,10 @@
         "sale": true,
         "price": 4500,
         "tags": [
-            "motor","work"
+            "motor",
+            "work"
         ],
-        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "image": "",
         "create": 1641716689000
     },
     {
@@ -94,9 +101,10 @@
         "sale": true,
         "price": 750,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "image": "./public/images/productos/imac2015.jpg",
+        "image": "",
         "create": 1641717689000,
         "__v": 0
     },
@@ -106,9 +114,11 @@
         "sale": true,
         "price": 399,
         "tags": [
-            "lifestyle","work","mobile"
+            "lifestyle",
+            "work",
+            "mobile"
         ],
-        "image": "./public/images/productos/iphonese2020.jpg",
+        "image": "",
         "create": 1641718689000
     },
     {
@@ -119,7 +129,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/productos/wii.jpg",
+        "image": "",
         "create": 1641714689000
     },
     {
@@ -128,9 +138,10 @@
         "sale": false,
         "price": 25,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "imagen": "",
         "create": 1641715689000
     },
     {
@@ -139,9 +150,10 @@
         "sale": true,
         "price": 4500,
         "tags": [
-            "motor","work"
+            "motor",
+            "work"
         ],
-        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "image": "",
         "create": 1641716689000
     },
     {
@@ -150,9 +162,10 @@
         "sale": true,
         "price": 750,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "image": "./public/images/productos/imac2015.jpg",
+        "image": "",
         "create": 1641717689000,
         "__v": 0
     },
@@ -162,9 +175,11 @@
         "sale": true,
         "price": 399,
         "tags": [
-            "lifestyle","work","mobile"
+            "lifestyle",
+            "work",
+            "mobile"
         ],
-        "image": "./public/images/productos/iphonese2020.jpg",
+        "image": "",
         "create": 1641718689000
     },
     {
@@ -175,7 +190,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/productos/wii.jpg",
+        "image": "",
         "create": 1641714689000
     },
     {
@@ -184,9 +199,10 @@
         "sale": false,
         "price": 25,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "imagen": "",
         "create": 1641715689000
     },
     {
@@ -195,9 +211,10 @@
         "sale": true,
         "price": 4500,
         "tags": [
-            "motor","work"
+            "motor",
+            "work"
         ],
-        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "image": "",
         "create": 1641716689000
     },
     {
@@ -206,9 +223,10 @@
         "sale": true,
         "price": 750,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "image": "./public/images/productos/imac2015.jpg",
+        "image": "",
         "create": 1641717689000,
         "__v": 0
     },
@@ -218,9 +236,11 @@
         "sale": true,
         "price": 399,
         "tags": [
-            "lifestyle","work","mobile"
+            "lifestyle",
+            "work",
+            "mobile"
         ],
-        "image": "./public/images/productos/iphonese2020.jpg",
+        "image": "",
         "create": 1641718689000
     },
     {
@@ -231,7 +251,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/productos/wii.jpg",
+        "image": "",
         "create": 1641714689000
     },
     {
@@ -240,9 +260,10 @@
         "sale": false,
         "price": 25,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "imagen": "",
         "create": 1641715689000
     },
     {
@@ -251,9 +272,10 @@
         "sale": true,
         "price": 4500,
         "tags": [
-            "motor","work"
+            "motor",
+            "work"
         ],
-        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "image": "",
         "create": 1641716689000
     },
     {
@@ -262,9 +284,10 @@
         "sale": true,
         "price": 750,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "image": "./public/images/productos/imac2015.jpg",
+        "image": "",
         "create": 1641717689000,
         "__v": 0
     },
@@ -274,9 +297,11 @@
         "sale": true,
         "price": 399,
         "tags": [
-            "lifestyle","work","mobile"
+            "lifestyle",
+            "work",
+            "mobile"
         ],
-        "image": "./public/images/productos/iphonese2020.jpg",
+        "image": "",
         "create": 1641718689000
     },
     {
@@ -287,7 +312,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/productos/wii.jpg",
+        "image": "",
         "create": 1641714689000
     },
     {
@@ -296,9 +321,10 @@
         "sale": false,
         "price": 25,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "imagen": "./public/images/productos/calzadogyear.jpg",
+        "imagen": "",
         "create": 1641715689000
     },
     {
@@ -307,9 +333,10 @@
         "sale": true,
         "price": 4500,
         "tags": [
-            "motor","work"
+            "motor",
+            "work"
         ],
-        "image": "./public/images/productos/fordgrnadcmax.jpg",
+        "image": "",
         "create": 1641716689000
     },
     {
@@ -318,9 +345,10 @@
         "sale": true,
         "price": 750,
         "tags": [
-            "lifestyle","work"
+            "lifestyle",
+            "work"
         ],
-        "image": "./public/images/productos/imac2015.jpg",
+        "image": "",
         "create": 1641717689000,
         "__v": 0
     },
@@ -330,9 +358,11 @@
         "sale": true,
         "price": 399,
         "tags": [
-            "lifestyle","work","mobile"
+            "lifestyle",
+            "work",
+            "mobile"
         ],
-        "image": "./public/images/productos/iphonese2020.jpg",
+        "image": "",
         "create": 1641718689000
     }
 ]
