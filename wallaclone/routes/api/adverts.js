@@ -73,6 +73,11 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/tags", (req, res, next) => {
+  const adverts = Advert.allowedTags();
+  res.json({adverts});
+})
+
 // Traer 1 anuncio
 router.get("/:id", async (req, res, next) => {
   try {
