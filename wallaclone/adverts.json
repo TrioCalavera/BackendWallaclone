@@ -7,7 +7,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/productos/wii.jpg",
+        "image": "/static/media/wii.jpg",
         "create": 1641714689000
     },
     {
