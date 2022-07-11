@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var expressValidator = require("express-validator");
+var config = require("./lib/configCors");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/api/users");
@@ -14,8 +15,8 @@ var app = express();
 
 // instalacion de cors
 var cors = require("cors");
-// app.use(cors(config.application.cors.server));
-app.use(cors());
+app.use(cors(config.application.cors.server));
+// app.use(cors());
 
 require("./lib/connectMongoose");
 
