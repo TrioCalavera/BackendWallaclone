@@ -74,7 +74,7 @@ router.get("/", async (req, res, next) => {
 });
 
 // Traer 1 anuncio
-router.get("/:id", async (req, res, next) => {
+router.get("/api/v1/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
 
@@ -92,7 +92,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", async (req, res, next) => {
+router.post("/api/v1", async (req, res, next) => {
   try {
     const advertData = req.body;
 
@@ -109,7 +109,7 @@ router.post("/", async (req, res, next) => {
 
 // DEL /:id
 // Borrar 1 anuncio
-router.delete("/:id", async (req, res, next) => {
+router.delete("/api/v1/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
 

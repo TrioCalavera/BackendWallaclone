@@ -6,7 +6,7 @@ const User = require("../../models/User");
 const expressValidator = require("express-validator");
 
 /* GET users listing. */
-router.get("/", async (req, res, next) => {
+router.get("/api/v1/", async (req, res, next) => {
   try {
     const email = req.query.email;
     const name = req.query.name;
@@ -39,7 +39,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", async (req, res, next) => {
+router.get("/api/v1/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
 
@@ -56,7 +56,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/api/v1/", async (req, res, next) => {
   try {
     const userData = req.body;
 
@@ -87,7 +87,7 @@ router.post("/", async (req, res, next) => {
 
 // DELETE /users/:id
 // Elimina un usuario
-router.delete("/:id", async (req, res, next) => {
+router.delete("/api/v1/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
 
