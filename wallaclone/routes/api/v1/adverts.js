@@ -1,7 +1,7 @@
 //"use strict";
 
 const express = require("express");
-const Advert = require("../../models/Advert");
+const Advert = require("../../../models/Advert");
 const router = express.Router();
 
 //Traer todos los anuncios

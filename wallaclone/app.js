@@ -7,9 +7,9 @@ var expressValidator = require("express-validator");
 var config = require("./lib/configCors");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/api/users");
-var advertsRouter = require("./routes/api/adverts");
-var authenticationRouter = require("./routes/api/authetication");
+var usersRouterV1 = require("./routes/api/v1/users");
+var advertsRouterV1 = require("./routes/api/v1/adverts");
+var authenticationRouterV1 = require("./routes/api/v1/authetication");
 
 var app = express();
 
@@ -34,14 +34,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-//  Routes of my API
-// app.use('/api/adverts', require('./routes/api/adverts'));
 
-//  Routes
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-app.use("/adverts", advertsRouter);
-app.use("/authentication", authenticationRouter);
+
+//  Routes API V1
+app.use("/api", indexRouter);
+app.use("/api/v1/users", usersRouterV1);
+app.use("/api/v1/adverts", advertsRouterV1);
+app.use("/api/v1/authentication", authenticationRouterV1);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
