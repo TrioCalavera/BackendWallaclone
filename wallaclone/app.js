@@ -15,7 +15,7 @@ var app = express();
 // instalacion de cors
 var cors = require("cors");
 app.use(cors(config.application.cors.server));
-//app.use(cors());
+// app.use(cors());
 
 require("./lib/connectMongoose");
 
