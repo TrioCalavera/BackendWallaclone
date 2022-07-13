@@ -1,5 +1,6 @@
 //"use strict";
 
+const createError = require("http-errors");
 const express = require("express");
 const Advert = require("../../../models/Advert");
 const router = express.Router();
@@ -67,7 +68,7 @@ router.get("/", async (req, res, next) => {
     }
 
     const adverts = await Advert.lista(filtros, skip, limit, select, sort);
-    res.json({ result: adverts });
+    res.status(200).json({ result: adverts });
   } catch (error) {
     next(error);
   }
@@ -76,7 +77,7 @@ router.get("/", async (req, res, next) => {
 router.get("/tags", (req, res, next) => {
   try {
     const adverts = Advert.allowedTags();
-    res.json({ adverts });
+    res.status(200).json({ adverts });
   } catch (error) {
     next(error);
   }
@@ -94,7 +95,7 @@ router.get("/:id", async (req, res, next) => {
       return;
     }
 
-    res.json({ result: advert });
+    res.status(200).json({ result: advert });
   } catch (err) {
     next(err);
   }
@@ -124,7 +125,7 @@ router.delete("/:id", async (req, res, next) => {
 
     await Advert.deleteOne({ _id: id });
 
-    res.json({ result: "Anuncio borrado", status: "ok" });
+    res.status(200).json({ result: "Anuncio borrado", status: "ok" });
   } catch (err) {
     next(err);
   }
