@@ -90,8 +90,12 @@ router.post("/", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
-
-    await User.deleteOne({ _id: id });
+    const user = await User.findOne({ _id: id });
+    if (!user) {
+      // Respondemos que no son validas las credenciales
+      res.status(404).json({ok: false, error: 'User does not exists'})
+      return
+    }
 
     res.status(200).send("User deleted successfully");
   } catch (err) {

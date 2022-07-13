@@ -122,6 +122,12 @@ router.post("/", async (req, res, next) => {
 router.delete("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
+    const advert = await Advert.findOne({ _id: id });
+
+    if (!advert) {
+      res.status(404).json({ok: false, error: 'Advert does not exists'})
+      return;
+    }
 
     await Advert.deleteOne({ _id: id });
 
