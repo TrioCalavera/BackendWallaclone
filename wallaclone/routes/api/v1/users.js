@@ -2,7 +2,7 @@ var express = require("express");
 const createError = require("http-errors");
 var router = express.Router();
 const jwt = require("jsonwebtoken");
-const User = require("../../models/User");
+const User = require("../../../models/User");
 const expressValidator = require("express-validator");
 
 /* GET users listing. */
