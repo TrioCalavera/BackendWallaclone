@@ -13,7 +13,7 @@ var authenticationRouterV1 = require("./routes/api/v1/authetication");
 var app = express();
 
 // instalacion de cors
-var cors  = require("cors");
+var cors = require("cors");
 // app.use(cors(config.application.cors.server));
 app.use(cors());
 
