@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 var expressValidator = require("express-validator");
+var config = require("./lib/configCors");
 
 var indexRouter = require("./routes/index");
 var usersRouterV1 = require("./routes/api/v1/users");
