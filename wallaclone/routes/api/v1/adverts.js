@@ -75,8 +75,8 @@ router.get("/", async (req, res, next) => {
 
 router.get("/tags", (req, res, next) => {
   try {
-    const adverts = Advert.allowedTags();
-    res.json({ adverts });
+    const tags = Advert.allowedTags();
+    res.json(tags);
   } catch (error) {
     next(error);
   }
