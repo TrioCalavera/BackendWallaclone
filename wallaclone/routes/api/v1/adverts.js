@@ -88,14 +88,14 @@ router.get("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
 
-    const advert = await Advert.findOne({ _id: id });
+    const advert = await Advert.findById(id);
 
     if (!advert) {
       next(createError(404));
       return;
     }
 
-    res.status(200).json({ result: advert });
+    res.json({ result: advert });
   } catch (err) {
     next(err);
   }

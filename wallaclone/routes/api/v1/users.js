@@ -60,6 +60,8 @@ router.post("/", async (req, res, next) => {
   try {
     const userData = req.body;
 
+    req.body.password =  await User.hashPassword(req.body.password)
+
     const email = req.body.email;
 
     const user = new User(userData);
@@ -91,12 +93,13 @@ router.delete("/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
     const user = await User.findOne({ _id: id });
+    
     if (!user) {
       // Respondemos que no son validas las credenciales
       res.status(404).json({ok: false, error: 'User does not exists'})
       return
     }
-
+    await User.deleteOne(user)
     res.status(200).send("User deleted successfully");
   } catch (err) {
     next(err);
