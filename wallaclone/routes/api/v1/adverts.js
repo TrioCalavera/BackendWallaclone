@@ -56,9 +56,20 @@ router.get("/", async (req, res, next) => {
     }
 
     // filter Tags
-    if (tags) {
-      filtros.tags = { $in: tags };
+    if(typeof tags !== "undefined"){
+      if (tags !== "-"){
+        filtros.tags = [];
+        const t = tags.split("-");
+        filtros.tags = {$in: t};
+      } else {
+        filtros.tags = { $in: tags };
+      }
     }
+
+    // if(tags){
+    //   filtros.tags = { $in: tags };
+    // }
+
     // REVISAR POR QUE DA ERROR AL USAR $GTE
     // Filter Create
     if (create) {
