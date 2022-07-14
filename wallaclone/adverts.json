@@ -7,7 +7,7 @@
         "tags": [
             "lifestyle"
         ],
-        "image": "./public/images/wii.jpg",
+        "image": "/images/wii.jpg",
         "create": 1641714689000
     },
     {
@@ -19,7 +19,373 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "./public/images/zapato.jpg",
+        "imagen": "/images/zapato.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "Ford grand cmax",
+        "description": "Vehiculo de 5 plazas + 2, monovolumen de la marca Ford, color blanco, motor ecologico con tecnologia ecoboost, de 1000cc. Muy poco consumo. Ideal para familias numerosas.",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor",
+            "work"
+        ],
+        "image": "/images/FordGrand.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Ordenandor de sobremesa de la marca norte americana Apple, en perfecto estado. 8 Gb de Ram y 1Tb de memoria interna. Excelente para trabajos graficos y cualquier trabajo que tenga que ver con el campo de la informatica. Precio no negociable.",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "image": "/images/imac.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Smartphone de la prestigiosa marca Apple, en perfecto estado, 32Gb de memoria interna, se entrega con auriculaes, cargador y su embalaje original. Ideal para iniciarse en el maravilloso mundo de la manzana.",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle",
+            "work",
+            "mobile"
+        ],
+        "image": "/images/iPhoneSE2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "Nintendo wii",
+        "description": "Consola Nintendo Wii en perfecto estado, se entregará con un unico mando y los cables para que funcione bien. Abstenerse curiosos.",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "/images/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "Calzado de seguridad gyear",
+        "description": "Fabulosos zapatos de seguridad de la marca GoodYear, nuevos a estrenar, se entregan con su embalaje original. Zapatos muy comodos.",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "imagen": "/images/zapato.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "Ford grand cmax",
+        "description": "Vehiculo de 5 plazas + 2, monovolumen de la marca Ford, color blanco, motor ecologico con tecnologia ecoboost, de 1000cc. Muy poco consumo. Ideal para familias numerosas.",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor",
+            "work"
+        ],
+        "image": "/images/FordGrand.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Ordenandor de sobremesa de la marca norte americana Apple, en perfecto estado. 8 Gb de Ram y 1Tb de memoria interna. Excelente para trabajos graficos y cualquier trabajo que tenga que ver con el campo de la informatica. Precio no negociable.",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "image": "/images/imac.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Smartphone de la prestigiosa marca Apple, en perfecto estado, 32Gb de memoria interna, se entrega con auriculaes, cargador y su embalaje original. Ideal para iniciarse en el maravilloso mundo de la manzana.",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle",
+            "work",
+            "mobile"
+        ],
+        "image": "/images/iPhoneSE2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "Nintendo wii",
+        "description": "Consola Nintendo Wii en perfecto estado, se entregará con un unico mando y los cables para que funcione bien. Abstenerse curiosos.",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "/images/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "Calzado de seguridad gyear",
+        "description": "Fabulosos zapatos de seguridad de la marca GoodYear, nuevos a estrenar, se entregan con su embalaje original. Zapatos muy comodos.",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "imagen": "/images/zapato.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "Ford grand cmax",
+        "description": "Vehiculo de 5 plazas + 2, monovolumen de la marca Ford, color blanco, motor ecologico con tecnologia ecoboost, de 1000cc. Muy poco consumo. Ideal para familias numerosas.",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor",
+            "work"
+        ],
+        "image": "/images/FordGrand.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Ordenandor de sobremesa de la marca norte americana Apple, en perfecto estado. 8 Gb de Ram y 1Tb de memoria interna. Excelente para trabajos graficos y cualquier trabajo que tenga que ver con el campo de la informatica. Precio no negociable.",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "image": "/images/imac.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Smartphone de la prestigiosa marca Apple, en perfecto estado, 32Gb de memoria interna, se entrega con auriculaes, cargador y su embalaje original. Ideal para iniciarse en el maravilloso mundo de la manzana.",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle",
+            "work",
+            "mobile"
+        ],
+        "image": "/images/iPhoneSE2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "Nintendo wii",
+        "description": "Consola Nintendo Wii en perfecto estado, se entregará con un unico mando y los cables para que funcione bien. Abstenerse curiosos.",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "/images/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "Calzado de seguridad gyear",
+        "description": "Fabulosos zapatos de seguridad de la marca GoodYear, nuevos a estrenar, se entregan con su embalaje original. Zapatos muy comodos.",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "imagen": "/images/zapato.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "Ford grand cmax",
+        "description": "Vehiculo de 5 plazas + 2, monovolumen de la marca Ford, color blanco, motor ecologico con tecnologia ecoboost, de 1000cc. Muy poco consumo. Ideal para familias numerosas.",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor",
+            "work"
+        ],
+        "image": "/images/FordGrand.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Ordenandor de sobremesa de la marca norte americana Apple, en perfecto estado. 8 Gb de Ram y 1Tb de memoria interna. Excelente para trabajos graficos y cualquier trabajo que tenga que ver con el campo de la informatica. Precio no negociable.",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "image": "/images/imac.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Smartphone de la prestigiosa marca Apple, en perfecto estado, 32Gb de memoria interna, se entrega con auriculaes, cargador y su embalaje original. Ideal para iniciarse en el maravilloso mundo de la manzana.",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle",
+            "work",
+            "mobile"
+        ],
+        "image": "/images/iPhoneSE2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "Nintendo wii",
+        "description": "Consola Nintendo Wii en perfecto estado, se entregará con un unico mando y los cables para que funcione bien. Abstenerse curiosos.",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "/images/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "Calzado de seguridad gyear",
+        "description": "Fabulosos zapatos de seguridad de la marca GoodYear, nuevos a estrenar, se entregan con su embalaje original. Zapatos muy comodos.",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "imagen": "/images/zapato.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "Ford grand cmax",
+        "description": "Vehiculo de 5 plazas + 2, monovolumen de la marca Ford, color blanco, motor ecologico con tecnologia ecoboost, de 1000cc. Muy poco consumo. Ideal para familias numerosas.",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor",
+            "work"
+        ],
+        "image": "/images/FordGrand.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Ordenandor de sobremesa de la marca norte americana Apple, en perfecto estado. 8 Gb de Ram y 1Tb de memoria interna. Excelente para trabajos graficos y cualquier trabajo que tenga que ver con el campo de la informatica. Precio no negociable.",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "image": "/images/imac.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Smartphone de la prestigiosa marca Apple, en perfecto estado, 32Gb de memoria interna, se entrega con auriculaes, cargador y su embalaje original. Ideal para iniciarse en el maravilloso mundo de la manzana.",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle",
+            "work",
+            "mobile"
+        ],
+        "image": "/images/iPhoneSE2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "Nintendo wii",
+        "description": "Consola Nintendo Wii en perfecto estado, se entregará con un unico mando y los cables para que funcione bien. Abstenerse curiosos.",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "/images/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "Calzado de seguridad gyear",
+        "description": "Fabulosos zapatos de seguridad de la marca GoodYear, nuevos a estrenar, se entregan con su embalaje original. Zapatos muy comodos.",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "imagen": "/images/zapato.jpg",
+        "create": 1641715689000
+    },
+    {
+        "name": "Ford grand cmax",
+        "description": "Vehiculo de 5 plazas + 2, monovolumen de la marca Ford, color blanco, motor ecologico con tecnologia ecoboost, de 1000cc. Muy poco consumo. Ideal para familias numerosas.",
+        "sale": true,
+        "price": 4500,
+        "tags": [
+            "motor",
+            "work"
+        ],
+        "image": "/images/FordGrand.jpg",
+        "create": 1641716689000
+    },
+    {
+        "name": "iMac 2015",
+        "description": "Ordenandor de sobremesa de la marca norte americana Apple, en perfecto estado. 8 Gb de Ram y 1Tb de memoria interna. Excelente para trabajos graficos y cualquier trabajo que tenga que ver con el campo de la informatica. Precio no negociable.",
+        "sale": true,
+        "price": 750,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "image": "/images/imac.jpg",
+        "create": 1641717689000,
+        "__v": 0
+    },
+    {
+        "name": "iPhone SE 2020",
+        "description": "Smartphone de la prestigiosa marca Apple, en perfecto estado, 32Gb de memoria interna, se entrega con auriculaes, cargador y su embalaje original. Ideal para iniciarse en el maravilloso mundo de la manzana.",
+        "sale": true,
+        "price": 399,
+        "tags": [
+            "lifestyle",
+            "work",
+            "mobile"
+        ],
+        "image": "/images/iPhoneSE2020.jpg",
+        "create": 1641718689000
+    },
+    {
+        "name": "Nintendo wii",
+        "description": "Consola Nintendo Wii en perfecto estado, se entregará con un unico mando y los cables para que funcione bien. Abstenerse curiosos.",
+        "sale": true,
+        "price": 29.99,
+        "tags": [
+            "lifestyle"
+        ],
+        "image": "/images/wii.jpg",
+        "create": 1641714689000
+    },
+    {
+        "name": "Calzado de seguridad gyear",
+        "description": "Fabulosos zapatos de seguridad de la marca GoodYear, nuevos a estrenar, se entregan con su embalaje original. Zapatos muy comodos.",
+        "sale": false,
+        "price": 25,
+        "tags": [
+            "lifestyle",
+            "work"
+        ],
+        "imagen": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
