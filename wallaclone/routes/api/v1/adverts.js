@@ -133,14 +133,4 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
-// Traernos nuestro array de tags de Anuncios
-router.get("/tags", (req, res, next) => {
-  try {
-    const tags = Advert.allowedTags();
-    res.json(tags);
-  } catch (error) {
-    next(error);
-  }
-});
-
 module.exports = router;
