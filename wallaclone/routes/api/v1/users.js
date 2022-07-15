@@ -65,10 +65,10 @@ router.post("/", async (req, res, next) => {
     //Buscamos el usuario
     const searchUserEmail = await User.findOne({ email });
     if (searchUserEmail) {
-      next(createError(404,'Exis an user with the same email.'));
+      next(createError(404,'Exist an user with the same email.'));
       return;
     }
-    
+
     const user = new User(userData);
 
     const newUser = await user.save();
