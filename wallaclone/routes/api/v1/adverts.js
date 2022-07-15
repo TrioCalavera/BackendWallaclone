@@ -75,7 +75,7 @@ router.get("/", async (req, res, next) => {
       filtros.create = create;
     }
 
-    const adverts = await Advert.lista(filtros, skip, limit, select, sort);
+    const adverts = await Advert.getList(filtros, skip, limit, select, sort);
     res.json({ result: adverts });
   } catch (error) {
     next(error);

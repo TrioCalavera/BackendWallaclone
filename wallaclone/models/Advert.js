@@ -17,7 +17,7 @@ const advertSchema = mongoose.Schema(
 );
 
 // Lista de filtros y condiciones
-advertSchema.statics.lista = function (filtros, skip, limit, select, sort) {
+advertSchema.statics.getList = function (filtros, skip, limit, select, sort) {
   const query = Advert.find(filtros);
   query.skip(skip);
   query.limit(limit);
