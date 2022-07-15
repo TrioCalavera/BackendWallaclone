@@ -19,7 +19,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -80,7 +80,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -141,7 +141,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -202,7 +202,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -263,7 +263,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -324,7 +324,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -385,7 +385,7 @@
             "lifestyle",
             "work"
         ],
-        "imagen": "/images/zapato.jpg",
+        "image": "/images/zapato.jpg",
         "create": 1641715689000
     },
     {
@@ -426,5 +426,4 @@
         "image": "/images/iPhoneSE2020.jpg",
         "create": 1641718689000
     }
-    
 ]
