@@ -3,7 +3,7 @@ const createError = require("http-errors");
 var router = express.Router();
 const jwt = require("jsonwebtoken");
 const User = require("../../../models/User");
-const expressValidator = require("express-validator");
+const { body, validationResult} = require("express-validator");
 
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
@@ -56,14 +56,18 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/", async (req, res, next) => {
+router.post("/",body('email').isEmail(),body('password').isLength({ min: 3 }),body('name').isLength({ min: 3 }), async (req, res, next) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const userData = req.body;
 
     req.body.password =  await User.hashPassword(req.body.password)
 
     const email = req.body.email;
-
+   
     const user = new User(userData);
 
     const newUser = await user.save();

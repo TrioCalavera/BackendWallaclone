@@ -4,6 +4,7 @@ const createError = require("http-errors");
 const express = require("express");
 const Advert = require("../../../models/Advert");
 const router = express.Router();
+const { body, validationResult} = require('express-validator')
 
 //Traer todos los anuncios
 router.get("/", async (req, res, next) => {
@@ -102,8 +103,12 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", async (req, res, next) => {
+router.post("/", body('sale').isBoolean(),body('price').isNumeric(),body('name').isLength({ min: 3 }),body('description').isLength({ min: 3 }), async (req, res, next) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
     const advertData = req.body;
 
     // Crea marca temporal
