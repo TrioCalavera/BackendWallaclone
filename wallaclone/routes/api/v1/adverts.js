@@ -2,6 +2,8 @@
 
 const express = require("express");
 const Advert = require("../../../models/Advert");
+const createError = require("http-errors"); 
+
 const router = express.Router();
 
 //Traer todos los anuncios
@@ -91,14 +93,9 @@ router.get("/:id", async (req, res, next) => {
 
     const advert = await Advert.findOne({ _id: id });
 
-    if (!advert) {
-      next(createError(404));
-      return;
-    }
-
     res.json({ result: advert });
   } catch (err) {
-    next(err);
+    next(createError(404, "No se encontro el anuncio."));
   }
 });
 
