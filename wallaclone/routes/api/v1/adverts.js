@@ -96,6 +96,7 @@ router.get("/:id", async (req, res, next) => {
     res.json({ result: advert });
   } catch (err) {
     next(createError(422, 'Invalid Id, not found.'));
+    return;
   }
 });
 
@@ -111,7 +112,8 @@ router.post("/", async (req, res, next) => {
     const newAdvert = await advert.save();
     res.status(201).json({ result: newAdvert });
   } catch (err) {
-    next(err);
+    next(createError(400, 'The server cannot or will not process the request due to something that is perceived to be a client error.'));
+    return;
   }
 });
 
@@ -125,7 +127,8 @@ router.delete("/:id", async (req, res, next) => {
 
     res.json({ result: "Anuncio borrado", status: "ok" });
   } catch (err) {
-    next(err);
+    next(createError(422, 'Invalid Id, not found.'));
+    return;
   }
 });
 

@@ -36,7 +36,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
 //  Routes API V1
 app.use("/api", indexRouter);
 app.use("/api/v1/users", usersRouterV1);
