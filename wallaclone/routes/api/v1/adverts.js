@@ -2,6 +2,8 @@
 
 const express = require("express");
 const Advert = require("../../../models/Advert");
+const createError = require("http-errors"); 
+
 const router = express.Router();
 
 //Traer todos los anuncios
@@ -56,9 +58,20 @@ router.get("/", async (req, res, next) => {
     }
 
     // filter Tags
-    if (tags) {
-      filtros.tags = { $in: tags };
+    if(typeof tags !== "undefined"){
+      if (tags !== "-"){
+        filtros.tags = [];
+        const t = tags.split("-");
+        filtros.tags = {$in: t};
+      } else {
+        filtros.tags = { $in: tags };
+      }
     }
+
+    // if(tags){
+    //   filtros.tags = { $in: tags };
+    // }
+
     // REVISAR POR QUE DA ERROR AL USAR $GTE
     // Filter Create
     if (create) {
@@ -73,15 +86,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/tags", (req, res, next) => {
-  try {
-    const tags = Advert.allowedTags();
-    res.json(tags);
-  } catch (error) {
-    next(error);
-  }
-});
-
 // Traer 1 anuncio
 router.get("/:id", async (req, res, next) => {
   try {
@@ -89,14 +93,10 @@ router.get("/:id", async (req, res, next) => {
 
     const advert = await Advert.findOne({ _id: id });
 
-    if (!advert) {
-      next(createError(404));
-      return;
-    }
-
     res.json({ result: advert });
   } catch (err) {
-    next(err);
+    next(createError(422, 'Invalid Id, not found.'));
+    return;
   }
 });
 
@@ -112,7 +112,8 @@ router.post("/", async (req, res, next) => {
     const newAdvert = await advert.save();
     res.status(201).json({ result: newAdvert });
   } catch (err) {
-    next(err);
+    next(createError(400, 'The server cannot or will not process the request due to something that is perceived to be a client error.'));
+    return;
   }
 });
 
@@ -126,7 +127,18 @@ router.delete("/:id", async (req, res, next) => {
 
     res.json({ result: "Anuncio borrado", status: "ok" });
   } catch (err) {
-    next(err);
+    next(createError(422, 'Invalid Id, not found.'));
+    return;
+  }
+});
+
+// Traernos nuestro array de tags de Anuncios
+router.get("/tags", (req, res, next) => {
+  try {
+    const adverts = Advert.allowedTags();
+    res.json({ adverts });
+  } catch (error) {
+    next(error);
   }
 });
 
