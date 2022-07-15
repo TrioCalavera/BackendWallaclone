@@ -95,7 +95,7 @@ router.get("/:id", async (req, res, next) => {
 
     res.json({ result: advert });
   } catch (err) {
-    next(createError(404, "No se encontro el anuncio."));
+    next(createError(422, 'Invalid Id, not found.'));
   }
 });
 
