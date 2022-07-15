@@ -17,7 +17,7 @@ const advertSchema = mongoose.Schema(
 );
 
 // Lista de filtros y condiciones
-advertSchema.statics.lista = function (filtros, skip, limit, select, sort) {
+advertSchema.statics.getList = function (filtros, skip, limit, select, sort) {
   const query = Advert.find(filtros);
   query.skip(skip);
   query.limit(limit);
@@ -27,16 +27,7 @@ advertSchema.statics.lista = function (filtros, skip, limit, select, sort) {
   return query.exec();
 };
 
-// tags permitidos
-advertSchema.statics.allowedTags = function () {
-  return [
-    { name: "work", icon: "fa fa-briefcase" },
-    { name: "lifestyle", icon: "fa fa-heart" },
-    { name: "mobile", icon: "fa fa-mobile" },
-    { name: "motor", icon: "fa fa-car" },
-    { name: "it", icon: "fa fa-coffee" },
-  ];
-};
+
 
 var Advert = mongoose.model("Advert", advertSchema);
 

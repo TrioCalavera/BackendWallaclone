@@ -18,7 +18,7 @@ router.post('/', async (req, res, next) => {
 
     if (!isValid) {
       // Respondemos que no son validas las credenciales
-      res.json({ok: false, error: 'invalid credentials'})
+      res.status(401).json({ok: false, error: 'Invalid credentials'})
       return
     }
 

@@ -11,6 +11,7 @@ var indexRouter = require("./routes/index");
 var usersRouterV1 = require("./routes/api/v1/users");
 var advertsRouterV1 = require("./routes/api/v1/adverts");
 var authenticationRouterV1 = require("./routes/api/v1/authetication");
+var tagsRouterV1 = require("./routes/api/v1/tags");
 
 var app = express();
 
@@ -41,6 +42,7 @@ app.use("/api", indexRouter);
 app.use("/api/v1/users", usersRouterV1);
 app.use("/api/v1/adverts", advertsRouterV1);
 app.use("/api/v1/authentication", authenticationRouterV1);
+app.use("/api/v1/tags", tagsRouterV1);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

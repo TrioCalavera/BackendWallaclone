@@ -75,7 +75,7 @@ router.get("/", async (req, res, next) => {
       filtros.create = create;
     }
 
-    const adverts = await Advert.lista(filtros, skip, limit, select, sort);
+    const adverts = await Advert.getList(filtros, skip, limit, select, sort);
     res.json({ result: adverts });
   } catch (error) {
     next(error);
@@ -130,16 +130,6 @@ router.delete("/:id", async (req, res, next) => {
   } catch (err) {
     next(createError(422, "Invalid Id, not found."));
     return;
-  }
-});
-
-// Traernos nuestro array de tags de Anuncios
-router.get("/tags", (req, res, next) => {
-  try {
-    const tags = Advert.allowedTags();
-    res.json(tags);
-  } catch (error) {
-    next(error);
   }
 });
 

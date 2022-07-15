@@ -8,6 +8,7 @@ const dbConnection = require('./lib/connectMongoose');
 
 const Adverts = require('./models/Advert');
 const User = require('./models/User');
+const Tag = require('./models/Tag')
 
 dbConnection.once('open', () => {
   main().catch(err => console.log('Hubo un error', err));
@@ -21,11 +22,14 @@ async function main() {
     process.exit(0);
   }
 
-  // inicializar articulos
-  await initAdverts();
-
   // inicializar usuarios
   await initUsers();
+
+  // inicializar tags
+  await initTags();
+
+  // inicializar articulos
+  await initAdverts();
 
   // desconectar la base de datos
   dbConnection.close();
@@ -54,6 +58,25 @@ async function initUsers() {
   console.log(`Creados ${usuarios.length} usuarios.`);
 }
 
+
+//crear tags
+async function initTags() {
+  // borrar los tags existentes
+  const deleted = await Tag.deleteMany();
+  console.log(`Eliminados ${deleted.deletedCount} tags.`);
+
+const tags = await Tag.insertMany([
+    { name: "work", icon: "fa fa-briefcase" },
+    { name: "lifestyle", icon: "fa fa-heart" },
+    { name: "mobile", icon: "fa fa-mobile" },
+    { name: "motor", icon: "fa fa-car" },
+    { name: "it", icon: "fa fa-coffee" },
+]);
+  console.log(`Creados ${tags.length} tags.`);
+}
+
+
+// crear anuncios
 async function initAdverts() {
   // borrar todos los articulos que haya en la colección
   const deleted = await Adverts.deleteMany();
