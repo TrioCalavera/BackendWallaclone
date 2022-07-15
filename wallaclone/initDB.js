@@ -61,7 +61,7 @@ async function initUsers() {
 
 //crear tags
 async function initTags() {
-  // borrar los usuarios existentes
+  // borrar los tags existentes
   const deleted = await Tag.deleteMany();
   console.log(`Eliminados ${deleted.deletedCount} tags.`);
 
