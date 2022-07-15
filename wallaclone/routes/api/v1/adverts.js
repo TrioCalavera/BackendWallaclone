@@ -2,7 +2,7 @@
 
 const express = require("express");
 const Advert = require("../../../models/Advert");
-const createError = require("http-errors"); 
+const createError = require("http-errors");
 
 const router = express.Router();
 
@@ -58,19 +58,15 @@ router.get("/", async (req, res, next) => {
     }
 
     // filter Tags
-    if(typeof tags !== "undefined"){
-      if (tags !== "-"){
+    if (typeof tags !== "undefined") {
+      if (tags !== "-") {
         filtros.tags = [];
         const t = tags.split("-");
-        filtros.tags = {$in: t};
+        filtros.tags = { $in: t };
       } else {
         filtros.tags = { $in: tags };
       }
     }
-
-    // if(tags){
-    //   filtros.tags = { $in: tags };
-    // }
 
     // REVISAR POR QUE DA ERROR AL USAR $GTE
     // Filter Create
@@ -95,7 +91,7 @@ router.get("/:id", async (req, res, next) => {
 
     res.json({ result: advert });
   } catch (err) {
-    next(createError(422, 'Invalid Id, not found.'));
+    next(createError(422, "Invalid Id, not found."));
     return;
   }
 });
@@ -112,7 +108,12 @@ router.post("/", async (req, res, next) => {
     const newAdvert = await advert.save();
     res.status(201).json({ result: newAdvert });
   } catch (err) {
-    next(createError(400, 'The server cannot or will not process the request due to something that is perceived to be a client error.'));
+    next(
+      createError(
+        400,
+        "The server cannot or will not process the request due to something that is perceived to be a client error."
+      )
+    );
     return;
   }
 });
@@ -127,7 +128,7 @@ router.delete("/:id", async (req, res, next) => {
 
     res.json({ result: "Anuncio borrado", status: "ok" });
   } catch (err) {
-    next(createError(422, 'Invalid Id, not found.'));
+    next(createError(422, "Invalid Id, not found."));
     return;
   }
 });
@@ -135,8 +136,8 @@ router.delete("/:id", async (req, res, next) => {
 // Traernos nuestro array de tags de Anuncios
 router.get("/tags", (req, res, next) => {
   try {
-    const adverts = Advert.allowedTags();
-    res.json({ adverts });
+    const tags = Advert.allowedTags();
+    res.json(tags);
   } catch (error) {
     next(error);
   }
