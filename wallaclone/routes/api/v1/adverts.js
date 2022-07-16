@@ -19,7 +19,7 @@ router.get("/", async (req, res, next) => {
     const skip = req.query.limit;
 
     // Limits the amount
-    const limit = parseInt(req.query.limit) || 15;
+    const limit = parseInt(req.query.limit) || 100;
 
     //Fields to show
     const select = req.query.select;
