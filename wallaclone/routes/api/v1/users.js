@@ -3,7 +3,8 @@ const createError = require("http-errors");
 var router = express.Router();
 const jwt = require("jsonwebtoken");
 const User = require("../../../models/User");
-const { body, validationResult} = require("express-validator");
+const {validationResult} = require("express-validator");
+const formValidation = require('../../../lib/formValidation')
 
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
@@ -56,7 +57,7 @@ router.get("/:id", async (req, res, next) => {
   }
 });
 
-router.post("/",body('email').isEmail(),body('password').isLength({ min: 3 }),body('name').isLength({ min: 3 }), async (req, res, next) => {
+router.post("/", formValidation.createUserValidator(), async (req, res, next) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {

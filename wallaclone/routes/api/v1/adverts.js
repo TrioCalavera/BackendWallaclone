@@ -4,7 +4,8 @@ const createError = require("http-errors");
 const express = require("express");
 const Advert = require("../../../models/Advert");
 const router = express.Router();
-const { body, validationResult} = require('express-validator')
+const { validationResult} = require('express-validator')
+const formValidation = require('../../../lib/formValidation')
 
 //Traer todos los anuncios
 router.get("/", async (req, res, next) => {
@@ -103,7 +104,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", body('sale').isBoolean(),body('price').isNumeric(),body('name').isLength({ min: 3 }),body('description').isLength({ min: 3 }), async (req, res, next) => {
+router.post("/", formValidation.createAddValidator() ,async (req, res, next) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
