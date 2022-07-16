@@ -3,6 +3,8 @@
 const createError = require("http-errors");
 const express = require("express");
 const Advert = require("../../../models/Advert");
+const createError = require("http-errors");
+
 const router = express.Router();
 const { validationResult} = require('express-validator')
 const formValidation = require('../../../lib/formValidation')
@@ -20,7 +22,7 @@ router.get("/", async (req, res, next) => {
     const skip = req.query.limit;
 
     // Limits the amount
-    const limit = parseInt(req.query.limit) || 15;
+    const limit = parseInt(req.query.limit) || 100;
 
     //Fields to show
     const select = req.query.select;
@@ -59,22 +61,29 @@ router.get("/", async (req, res, next) => {
     }
 
     // filter Tags
-    if (tags) {
-      filtros.tags = { $in: tags };
+    if (typeof tags !== "undefined") {
+      if (tags !== "-") {
+        filtros.tags = [];
+        const t = tags.split("-");
+        filtros.tags = { $in: t };
+      } else {
+        filtros.tags = { $in: tags };
+      }
     }
+
     // REVISAR POR QUE DA ERROR AL USAR $GTE
     // Filter Create
     if (create) {
       // filtros.create.$gte = create;
       filtros.create = create;
     }
-
     const adverts = await Advert.lista(filtros, skip, limit, select, sort);
     res.status(200).json({ result: adverts });
   } catch (error) {
     next(error);
   }
 });
+
 
 router.get("/tags", (req, res, next) => {
   try {
@@ -92,14 +101,10 @@ router.get("/:id", async (req, res, next) => {
 
     const advert = await Advert.findById(id);
 
-    if (!advert) {
-      next(createError(404));
-      return;
-    }
-
     res.json({ result: advert });
   } catch (err) {
-    next(err);
+    next(createError(422, "Invalid Id, not found."));
+    return;
   }
 });
 
@@ -119,7 +124,13 @@ router.post("/", formValidation.createAddValidator() ,async (req, res, next) => 
     const newAdvert = await advert.save();
     res.status(201).json({ result: newAdvert });
   } catch (err) {
-    next(err);
+    next(
+      createError(
+        400,
+        "The server cannot or will not process the request due to something that is perceived to be a client error."
+      )
+    );
+    return;
   }
 });
 
@@ -139,7 +150,8 @@ router.delete("/:id", async (req, res, next) => {
 
     res.status(200).json({ result: "Anuncio borrado", status: "ok" });
   } catch (err) {
-    next(err);
+    next(createError(422, "Invalid Id, not found."));
+    return;
   }
 });
 

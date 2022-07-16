@@ -17,7 +17,7 @@ const advertSchema = mongoose.Schema(
 );
 
 // Lista de filtros y condiciones
-advertSchema.statics.lista = function (filtros, skip, limit, select, sort) {
+advertSchema.statics.getList = function (filtros, skip, limit, select, sort) {
   const query = Advert.find(filtros);
   query.skip(skip);
   query.limit(limit);
@@ -27,10 +27,7 @@ advertSchema.statics.lista = function (filtros, skip, limit, select, sort) {
   return query.exec();
 };
 
-// tags permitidos
-advertSchema.statics.allowedTags = function () {
-  return ["work", "lifestyle", "mobile", "motor", "it"];
-};
+
 
 var Advert = mongoose.model("Advert", advertSchema);
 
