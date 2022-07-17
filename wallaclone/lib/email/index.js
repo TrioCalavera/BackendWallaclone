@@ -21,17 +21,17 @@ router.post("/", (req, res, next) => {
         <p>${req.body.mensaje}</p>
         `;
         let transporter = nodemailer.createTransport({
-            host: "smtp.mail.yahoo.com",
+            host: "smtp.gmail.com",
             port: 587,
             auth: {
-                user: "elwallaclonedelatropa@yahoo.com",
-                pass: "Ladelatropa2022"
+                user: "eltriocalaverabmj@gmail.com",
+                pass: "Ladeltrio3"
             }
         });
         let mailOptions = {
-            from: "elwallaclonedelatropa@yahoo.com",
+            from: "eltriocalaverabmj@gmail.com",
             to: req.body.email,
-            replyTo: "elwallaclonedelatropa@yahoo.com",
+            replyTo: "eltriocalaverabmj@gmail.com",
             subject: req.body.asunto,
             text: req.body.mensaje,
             html: htmlEmail
