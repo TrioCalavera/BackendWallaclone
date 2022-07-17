@@ -100,6 +100,9 @@ router.get("/:id", async (req, res, next) => {
     const id = req.params.id;
 
     const advert = await Advert.findById(id);
+    if (!advert) {
+      return res.status(422).json({ error: 'Advert not found'});
+    }
 
     res.json({ result: advert });
   } catch (err) {
