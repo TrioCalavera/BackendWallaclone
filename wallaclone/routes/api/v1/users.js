@@ -67,8 +67,13 @@ router.post("/", formValidation.createUserValidator(), async (req, res, next) =>
 
     req.body.password =  await User.hashPassword(req.body.password)
 
-    const email = req.body.email;
-   
+    //Buscamos el usuario
+    const searchUserEmail = await User.findOne({ email });
+    if (searchUserEmail) {
+      next(createError(404,'Exist an user with the same email.'));
+      return;
+    }
+
     const user = new User(userData);
 
     const newUser = await user.save();

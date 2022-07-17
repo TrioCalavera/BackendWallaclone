@@ -3,6 +3,7 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
+const {isAPIRequest} = require("./lib/utils")
 var expressValidator = require("express-validator");
 var config = require("./lib/configCors");
 
@@ -10,6 +11,7 @@ var indexRouter = require("./routes/index");
 var usersRouterV1 = require("./routes/api/v1/users");
 var advertsRouterV1 = require("./routes/api/v1/adverts");
 var authenticationRouterV1 = require("./routes/api/v1/authetication");
+var tagsRouterV1 = require("./routes/api/v1/tags");
 
 var app = express();
 
@@ -35,12 +37,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 
-
 //  Routes API V1
 app.use("/api", indexRouter);
 app.use("/api/v1/users", usersRouterV1);
 app.use("/api/v1/adverts", advertsRouterV1);
 app.use("/api/v1/authentication", authenticationRouterV1);
+app.use("/api/v1/tags", tagsRouterV1);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -49,12 +51,20 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
+
+  res.status(err.status || 500);
+
+  if(isAPIRequest(req)){
+    res.json({error:err.message});
+    return;
+  }
+
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
 
   // render the error page
-  res.status(err.status || 500);
+  
   res.render("error");
 });
 
