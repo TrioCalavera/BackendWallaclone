@@ -43,9 +43,8 @@ router.get("/", async (req, res, next) => {
 //devuelvo el usuario q esta haciendo la peticion
 router.get("/me", jwtAuth(), async(req,res,next)=>{
   try {  
-    console.log(req.userId);
     const user = await User.findById(req.userId).exec();
-    console.log(user);
+
     if (!user) {
       next(createError(404));
       return;
