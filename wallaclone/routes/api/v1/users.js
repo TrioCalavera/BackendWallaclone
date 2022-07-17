@@ -66,7 +66,7 @@ router.post("/", formValidation.createUserValidator(), async (req, res, next) =>
     const userData = req.body;
 
     req.body.password =  await User.hashPassword(req.body.password)
-
+    const email = req.body.email;
     //Buscamos el usuario
     const searchUserEmail = await User.findOne({ email });
     if (searchUserEmail) {

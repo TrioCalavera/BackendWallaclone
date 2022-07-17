@@ -1,6 +1,5 @@
 //"use strict";
 
-const createError = require("http-errors");
 const express = require("express");
 const Advert = require("../../../models/Advert");
 const createError = require("http-errors");
@@ -78,7 +77,7 @@ router.get("/", async (req, res, next) => {
       filtros.create = create;
     }
 
-    const adverts = await Advert.lista(filtros, skip, limit, select, sort);
+    const adverts = await Advert.getList(filtros, skip, limit, select, sort);
     res.status(200).json({ result: adverts });
 
   } catch (error) {
