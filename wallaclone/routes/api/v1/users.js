@@ -4,6 +4,7 @@ var router = express.Router();
 const jwt = require("jsonwebtoken");
 const User = require("../../../models/User");
 const expressValidator = require("express-validator");
+const jwtAuth = require("../../../lib/jwtAuth");
 
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
@@ -38,6 +39,23 @@ router.get("/", async (req, res, next) => {
     next(err);
   }
 });
+
+//devuelvo el usuario q esta haciendo la peticion
+router.get("/me", jwtAuth(), async(req,res,next)=>{
+  try {  
+    console.log(req.userId);
+    const user = await User.findById(req.userId).exec();
+    console.log(user);
+    if (!user) {
+      next(createError(404));
+      return;
+    }
+    res.status(200).json({ user });
+  } catch (error) {
+    next(error);
+  }
+})
+
 
 router.get("/:id", async (req, res, next) => {
   try {
@@ -105,5 +123,6 @@ router.delete("/:id", async (req, res, next) => {
     next(err);
   }
 });
+
 
 module.exports = router;

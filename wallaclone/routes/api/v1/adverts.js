@@ -1,10 +1,12 @@
 //"use strict";
 
 const express = require("express");
-const Advert = require("../../../models/Advert");
 const createError = require("http-errors");
-
 const router = express.Router();
+
+const Advert = require("../../../models/Advert");
+const User = require("../../../models/User")
+const jwtAuth = require("../../../lib/jwtAuth");
 
 //Traer todos los anuncios
 router.get("/", async (req, res, next) => {
@@ -97,10 +99,12 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", async (req, res, next) => {
+router.post("/", jwtAuth(), async (req, res, next) => {
   try {
     const advertData = req.body;
 
+    const usuario = await User.findById(req.userId).exec();
+    console.log(usuario);
     // Crea marca temporal
     advertData.create = Date.now();
 
