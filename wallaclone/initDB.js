@@ -6,9 +6,9 @@ const readline = require('readline');
 
 const dbConnection = require('./lib/connectMongoose');
 
-const Adverts = require('./models/Advert');
 const User = require('./models/User');
 const Tag = require('./models/Tag')
+const Adverts = require('./models/Advert');
 
 dbConnection.once('open', () => {
   main().catch(err => console.log('Hubo un error', err));

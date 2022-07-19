@@ -104,8 +104,11 @@ router.post("/", jwtAuth(), async (req, res, next) => {
     const advertData = req.body;
 
     const usuario = await User.findById(req.userId).exec();
-    console.log(usuario);
-    // Crea marca temporal
+    
+    //asignamos el id del usuario al anuncio q esta creando.
+    advertData.user = usuario._id;
+
+    // Crea marca temporal    
     advertData.create = Date.now();
 
     const advert = new Advert(advertData);
