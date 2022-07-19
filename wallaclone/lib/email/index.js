@@ -1,16 +1,14 @@
 'use strict'
 
 const express = require("express");
-const bodyParser = require("body-parser");
+// const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
-const { google } = require("googleapis");
-const OAuth2 = google.auth.OAuth2;
 const app = require("../../app");
 const router = express.Router();
 require('dotenv').config();
 
 router.post("/", (req, res, next) => {
-    try {
+     try {
         
     
     nodemailer.createTestAccount((err, account) => {
@@ -24,11 +22,10 @@ router.post("/", (req, res, next) => {
         <p>${req.body.mensaje}</p>
         `;
         let transporter = nodemailer.createTransport({
-            host: "smtp.gmail.com",
-            secure: false,
+            host: "smtp.ethereal.com",
+            //secure: false,
             port: 587,
             auth: {
-                //type: "OAuth2",
                 user: process.env.CONFIG_EMAIL_USER,
                 pass: process.env.CONFIG_EMAIL_PASS
             }
@@ -98,3 +95,15 @@ module.exports = router;
 
 // }
 
+// router.post("/", (req, res, next) => {
+//     const transporter = nodemailer.createTransport({
+//         host: 'smtp.ethereal.email',
+//         port: 587,
+//         auth: {
+//             user: 'broderick.wisozk30@ethereal.email',
+//             pass: 'Cgjuv7e7aKdJjqX45r'
+//         }
+//     });
+// }
+
+// module.exports = router;
