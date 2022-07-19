@@ -3,8 +3,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 const app = require("../../app");
 const router = express.Router();
+require('dotenv').config();
 
 router.post("/", (req, res, next) => {
     try {
@@ -22,10 +25,12 @@ router.post("/", (req, res, next) => {
         `;
         let transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
+            secure: false,
             port: 587,
             auth: {
-                user: "eltriocalaverabmj@gmail.com",
-                pass: "Ladeltrio3"
+                //type: "OAuth2",
+                user: process.env.CONFIG_EMAIL_USER,
+                pass: process.env.CONFIG_EMAIL_PASS
             }
         });
         let mailOptions = {
