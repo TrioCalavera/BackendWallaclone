@@ -8,6 +8,24 @@ const Advert = require("../../../models/Advert");
 const User = require("../../../models/User")
 const jwtAuth = require("../../../lib/jwtAuth");
 
+// config multer to upload images
+const multer = require('multer');
+const path = require('path');
+const { dirname } = require('path');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './public/images');
+  },
+  filename: (req, file, cb) => {
+    const randomStr = Date.now() + '-' + Math.round(Math.random() * 1e9);
+    cb(
+      null,
+      file.fieldname + '-' + randomStr + '.' + file.mimetype.split('/')[1],
+    );
+  },
+});
+const upload = multer({ storage });
+
 //Traer todos los anuncios
 router.get("/", async (req, res, next) => {
   try {
@@ -99,12 +117,13 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", jwtAuth(), async (req, res, next) => {
+router.post("/", jwtAuth(), upload.single('image'), async (req, res, next) => {
   try {
     const advertData = req.body;
 
-    const usuario = await User.findById(req.userId).exec();
-    
+    advertData.image = '.' + req.file.path.split('public')[1];
+
+    const usuario = await User.findById(req.userId).exec();    
     //asignamos el id del usuario al anuncio q esta creando.
     advertData.user = usuario._id;
 
