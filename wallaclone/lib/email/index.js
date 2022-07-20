@@ -31,9 +31,9 @@ router.post("/", (req, res, next) => {
             }
         });
         let mailOptions = {
-            from: "eltriocalaverabmj@gmail.com",
+            from: "broderick.wisozk30@ethereal.email",
             to: req.body.email,
-            replyTo: "eltriocalaverabmj@gmail.com",
+            replyTo: "broderick.wisozk30@ethereal.email",
             subject: req.body.asunto,
             text: req.body.mensaje,
             html: htmlEmail
