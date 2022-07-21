@@ -1,6 +1,8 @@
 "use strict";
 
 const mongoose = require("mongoose");
+var Schema = mongoose.Schema;
+var User = mongoose.model('User');
 
 // definir un esquema
 const advertSchema = mongoose.Schema(
@@ -12,6 +14,7 @@ const advertSchema = mongoose.Schema(
     sale: { type: Boolean, index: true },
     tags: { type: [String], index: true },
     create: { type: Number, index: true },
+    user: {type: Schema.ObjectId, ref: User}
   },
   {}
 );

@@ -1,12 +1,32 @@
 //"use strict";
 
 const express = require("express");
-const Advert = require("../../../models/Advert");
 const createError = require("http-errors");
-
 const router = express.Router();
 const { validationResult} = require('express-validator')
 const formValidation = require('../../../lib/formValidation')
+
+const Advert = require("../../../models/Advert");
+const User = require("../../../models/User");
+const jwtAuth = require("../../../lib/jwtAuth");
+
+// config multer to upload images
+const multer = require("multer");
+const path = require("path");
+const { dirname } = require("path");
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./public/images");
+  },
+  filename: (req, file, cb) => {
+    const randomStr = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    cb(
+      null,
+      file.fieldname + "-" + randomStr + "." + file.mimetype.split("/")[1]
+    );
+  },
+});
+const upload = multer({ storage });
 
 //Traer todos los anuncios
 router.get("/", async (req, res, next) => {
@@ -112,13 +132,23 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", formValidation.createAddValidator() ,async (req, res, next) => {
+router.post("/", jwtAuth(), upload.single("image"), formValidation.createAddValidator(), async (req, res, next) => {
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
     const advertData = req.body;
+
+    // Reemplazar \ por /. Las dos.
+    let filePathTemp = req.file.path.split("public")[1];
+    let remplaceTemp = filePathTemp.replace("\\", "/");
+    remplaceTemp = remplaceTemp.replace("\\", "/");
+    advertData.image = remplaceTemp;
+
+    const usuario = await User.findById(req.userId).exec();
+    //asignamos el id del usuario al anuncio q esta creando.
+    advertData.user = usuario._id;
 
     // Crea marca temporal
     advertData.create = Date.now();
