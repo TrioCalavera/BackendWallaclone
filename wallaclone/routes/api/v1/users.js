@@ -82,10 +82,11 @@ router.post("/", formValidation.createUserValidator(), async (req, res, next) =>
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+    req.body.password =  await User.hashPassword(req.body.password)
+
+    const email = req.body.email;
     const userData = req.body;
 
-    req.body.password =  await User.hashPassword(req.body.password)
-    const email = req.body.email;
     //Buscamos el usuario
     const searchUserEmail = await User.findOne({ email });
     if (searchUserEmail) {
