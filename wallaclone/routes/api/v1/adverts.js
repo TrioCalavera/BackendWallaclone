@@ -132,8 +132,9 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", jwtAuth(), upload.single("image"),  async (req, res, next) => {
+router.post("/", jwtAuth(), upload.single("image"),formValidation.createAddValidator(),  async (req, res, next) => {
 try {
+    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
@@ -141,7 +142,7 @@ try {
     const advertData = req.body;
 
     // Reemplazar \ por /. Las dos.
-    if(req.file.path){    
+    if(req.image){    
       let filePathTemp = req.file.path.split("public")[1];
       let remplaceTemp = filePathTemp.replace("\\", "/");
       remplaceTemp = remplaceTemp.replace("\\", "/");

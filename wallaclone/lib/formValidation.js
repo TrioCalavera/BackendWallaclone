@@ -1,9 +1,8 @@
 'use strict'
-const {body} = require('express-validator')
+const {body} = require('express-validator');
 
  const createAddValidator = () => {
   return([
-
     body('sale').isBoolean(),
     body('price').isNumeric(),
     body('description').isLength({ min: 3 }),
