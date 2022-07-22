@@ -45,7 +45,7 @@ router.get("/", async (req, res, next) => {
     const select = req.query.select;
 
     //Field to sort
-    const sort = req.query.sort || "create";
+    const sort = req.query.sort;
 
     // Obj filtros
     const filtros = {};
@@ -81,7 +81,7 @@ router.get("/", async (req, res, next) => {
     if (typeof tags !== "undefined") {
       if (tags !== "-") {
         filtros.tags = [];
-        const t = tags.split("-");
+        const t = tags.split(",");
         filtros.tags = { $in: t };
       } else {
         filtros.tags = { $in: tags };
@@ -91,8 +91,11 @@ router.get("/", async (req, res, next) => {
     // REVISAR POR QUE DA ERROR AL USAR $GTE
     // Filter Create
     if (create) {
-      // filtros.create.$gte = create;
       filtros.create = create;
+    }
+
+    if (sort) {
+      filtros.sort = sort;
     }
 
     const adverts = await Advert.getList(filtros, skip, limit, select, sort);
