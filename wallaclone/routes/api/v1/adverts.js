@@ -132,7 +132,7 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", jwtAuth(), formValidation.createAddValidator(), upload.single("image"),  async (req, res, next) => {
+router.post("/", jwtAuth(), upload.single("image"),  async (req, res, next) => {
 try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -141,11 +141,12 @@ try {
     const advertData = req.body;
 
     // Reemplazar \ por /. Las dos.
-    let filePathTemp = req.file.path.split("public")[1];
-    let remplaceTemp = filePathTemp.replace("\\", "/");
-    remplaceTemp = remplaceTemp.replace("\\", "/");
-    advertData.image = remplaceTemp;
-
+    if(req.file.path){    
+      let filePathTemp = req.file.path.split("public")[1];
+      let remplaceTemp = filePathTemp.replace("\\", "/");
+      remplaceTemp = remplaceTemp.replace("\\", "/");
+      advertData.image = remplaceTemp;
+      }
     const usuario = await User.findById(req.userId).exec();
     //asignamos el id del usuario al anuncio q esta creando.
     advertData.user = usuario._id;
@@ -158,6 +159,7 @@ try {
     res.status(201).json({ result: newAdvert });
   } catch (err) {
     next(
+      console.log(err),
       createError(
         400,
         "The server cannot or will not process the request due to something that is perceived to be a client error."
