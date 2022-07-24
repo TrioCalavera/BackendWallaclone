@@ -52,7 +52,13 @@ router.get("/me", jwtAuth(), async(req,res,next)=>{
       next(createError(404));
       return;
     }
-    res.status(200).json({ result: user });
+    res.status(200)
+      .json({ 
+        result: 
+          {email: user.email,
+           name: user.name, 
+           role: user.role} 
+          });
   } catch (error) {
     next(error);
   }
