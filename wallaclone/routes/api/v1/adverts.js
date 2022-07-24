@@ -145,12 +145,16 @@ try {
     const advertData = req.body;
 
     // Reemplazar \ por /. Las dos.
-    if(req.image){    
+
+
+    if(req.file){    
       let filePathTemp = req.file.path.split("public")[1];
       let remplaceTemp = filePathTemp.replace("\\", "/");
       remplaceTemp = remplaceTemp.replace("\\", "/");
       advertData.image = remplaceTemp;
+      
       }
+
     const usuario = await User.findById(req.userId).exec();
     //asignamos el id del usuario al anuncio q esta creando.
     advertData.user = usuario._id;
