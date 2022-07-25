@@ -3,8 +3,8 @@
 const express = require("express");
 const createError = require("http-errors");
 const router = express.Router();
-const { validationResult} = require('express-validator')
-const formValidation = require('../../../lib/formValidation')
+const { validationResult } = require("express-validator");
+const formValidation = require("../../../lib/formValidation");
 
 const Advert = require("../../../models/Advert");
 const User = require("../../../models/User");
@@ -81,7 +81,7 @@ router.get("/", async (req, res, next) => {
 
     // filter Tags
     if (typeof tags !== "undefined") {
-      if (tags !== "-") {
+      if (tags !== ",") {
         filtros.tags = [];
         const t = tags.split(",");
         filtros.tags = { $in: t };
@@ -102,7 +102,6 @@ router.get("/", async (req, res, next) => {
 
     const adverts = await Advert.getList(filtros, skip, limit, select, sort);
     res.status(200).json({ result: adverts });
-
   } catch (error) {
     next(error);
   }
@@ -115,7 +114,7 @@ router.get("/:id", async (req, res, next) => {
 
     const advert = await Advert.findById(id);
     if (!advert) {
-      return res.status(422).json({ error: 'Advert not found'});
+      return res.status(422).json({ error: "Advert not found" });
     }
 
     res.json({ result: advert });
@@ -126,47 +125,50 @@ router.get("/:id", async (req, res, next) => {
 });
 
 // Crear 1 anuncio
-router.post("/", jwtAuth(), upload.single("image"),formValidation.createAddValidator(),  async (req, res, next) => {
-try {
-    
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-    const advertData = req.body;
+router.post(
+  "/",
+  jwtAuth(),
+  upload.single("image"),
+  formValidation.createAddValidator(),
+  async (req, res, next) => {
+    try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+      const advertData = req.body;
 
-    // Reemplazar \ por /. Las dos.
+      // Reemplazar \ por /. Las dos.
 
-
-    if(req.file){    
-      let filePathTemp = req.file.path.split("public")[1];
-      let remplaceTemp = filePathTemp.replace("\\", "/");
-      remplaceTemp = remplaceTemp.replace("\\", "/");
-      advertData.image = remplaceTemp;
-      
+      if (req.file) {
+        let filePathTemp = req.file.path.split("public")[1];
+        let remplaceTemp = filePathTemp.replace("\\", "/");
+        remplaceTemp = remplaceTemp.replace("\\", "/");
+        advertData.image = remplaceTemp;
       }
 
-    const usuario = await User.findById(req.userId).exec();
-    //asignamos el id del usuario al anuncio q esta creando.
-    advertData.user = usuario._id;
+      const usuario = await User.findById(req.userId).exec();
+      //asignamos el id del usuario al anuncio q esta creando.
+      advertData.user = usuario._id;
 
-    // Crea marca temporal
-    advertData.create = Date.now();
+      // Crea marca temporal
+      advertData.create = Date.now();
 
-    const advert = new Advert(advertData);
-    const newAdvert = await advert.save();
-    res.status(201).json({ result: newAdvert });
-  } catch (err) {
-    next(
-      console.log(err),
-      createError(
-        400,
-        "The server cannot or will not process the request due to something that is perceived to be a client error."
-      )
-    );
-    return;
+      const advert = new Advert(advertData);
+      const newAdvert = await advert.save();
+      res.status(201).json({ result: newAdvert });
+    } catch (err) {
+      next(
+        console.log(err),
+        createError(
+          400,
+          "The server cannot or will not process the request due to something that is perceived to be a client error."
+        )
+      );
+      return;
+    }
   }
-});
+);
 
 // DEL /:id
 // Borrar 1 anuncio
@@ -176,7 +178,7 @@ router.delete("/:id", async (req, res, next) => {
     const advert = await Advert.findOne({ _id: id });
 
     if (!advert) {
-      res.status(404).json({ok: false, error: 'Advert does not exists'})
+      res.status(404).json({ ok: false, error: "Advert does not exists" });
       return;
     }
 
