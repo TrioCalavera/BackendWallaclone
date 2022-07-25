@@ -57,7 +57,8 @@ router.get("/me", jwtAuth(), async(req,res,next)=>{
         result: 
           {email: user.email,
            name: user.name, 
-           role: user.role} 
+           role: user.role,
+           _id: user._id} 
           });
   } catch (error) {
     next(error);
