@@ -5,10 +5,11 @@ const createError = require("http-errors");
 const router = express.Router();
 const { validationResult } = require("express-validator");
 const formValidation = require("../../../lib/formValidation");
-
+const mongoose = require('mongoose');
 const Advert = require("../../../models/Advert");
 const User = require("../../../models/User");
 const jwtAuth = require("../../../lib/jwtAuth");
+const transporter = require("../../../lib/mailerConf");
 
 // config multer to upload images
 const multer = require("multer");
@@ -107,6 +108,38 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/mine",jwtAuth(),async(req,res,next)=>{
+  try {    
+    const tags = "";
+    const price = "";
+    const name = "";
+    const sale = "";
+    const create = "";
+    // Pagination
+    const skip = req.query.limit;
+
+    // Limits the amount
+    const limit = parseInt(req.query.limit) || 100;
+
+    //Fields to show
+    const select = req.query.select;
+
+    //Field to sort
+    const sort = req.query.sort;
+
+    // Obj filtros
+    const filtros = {};
+    
+    const objectId = mongoose.Types.ObjectId(req.userId);
+    filtros.user = objectId;
+    
+    const adverts = await Advert.getList(filtros, skip, limit, select, sort);
+    res.status(200).json({ result: adverts });
+  } catch (error) {
+    next(error);
+  }
+})
+
 // Traer 1 anuncio
 router.get("/:id", async (req, res, next) => {
   try {
@@ -170,6 +203,20 @@ router.post(
   }
 );
 
+router.post("/email", jwtAuth(), async(req, res, next) => {
+  try{
+    const sender = await User.findById(req.userId);
+    const receiver = await User.findById(req.body.receiverId);
+    const advert = await Advert.findById(req.body.advert);
+
+    await sender.enviarEmailOffer("Tienes una propuesta desde WallaClone",req.body.message, receiver,advert);
+
+    res.status(200).json({ result: "Email enviado", status: "ok" });
+  }catch(err){
+    next(createError(400, "The server cannot or will not process the request email due to something that is perceived to be a client error."));
+    return;
+  }
+})
 // DEL /:id
 // Borrar 1 anuncio
 router.delete("/:id", async (req, res, next) => {
