@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
 const emailTransportConfigure = require("../lib/mailerConf");
+const { readHTMLFile } = require("../lib/utils")
 
 // esquema creado
 const userSchema = mongoose.Schema(
@@ -37,16 +38,25 @@ userSchema.methods.comparePasword = function(passwordClear) {
 } 
 
 
-userSchema.methods.enviarEmail = async function(asunto, cuerpo, emailTo) {
+userSchema.methods.enviarEmail = async function(asunto, message, receiver, advert) {
+    var data = {
+      username: this.name,
+      useroffer: receiver.email,
+      message: message,
+      advert: advert.name,
+    };
+    
+    var body = await readHTMLFile(data);
+    
     // crear el transport
     const transport = await emailTransportConfigure();
-    console.log(asunto, cuerpo);
+    
     // enviar el email
     const result = await transport.sendMail({
       from: process.env.EMAIL_SERVICE_FROM,
-      to: emailTo,
+      to: receiver.email,
       subject: asunto,
-      html: cuerpo
+      html: body
     });
   
     console.log("Message sent: %s", result.messageId);
