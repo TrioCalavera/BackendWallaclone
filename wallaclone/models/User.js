@@ -38,14 +38,14 @@ userSchema.methods.comparePasword = function(passwordClear) {
 } 
 
 
-userSchema.methods.enviarEmail = async function(asunto, message, receiver, advert) {
+userSchema.methods.enviarEmailOffer = async function(asunto, message, receiver, advert) {
     var data = {
-      username: this.name,
-      useroffer: receiver.email,
+      username: receiver.name,
+      useroffer: this.email,
       message: message,
       advert: advert.name,
     };
-    
+
     var body = await readHTMLFile(data);
     
     // crear el transport

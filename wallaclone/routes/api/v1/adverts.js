@@ -209,7 +209,7 @@ router.post("/email", jwtAuth(), async(req, res, next) => {
     const receiver = await User.findById(req.body.receiverId);
     const advert = await Advert.findById(req.body.advert);
 
-    await sender.enviarEmail("Tienes una propuesta desde WallaClone",req.body.message, receiver,advert);
+    await sender.enviarEmailOffer("Tienes una propuesta desde WallaClone",req.body.message, receiver,advert);
 
     res.status(200).json({ result: "Email enviado", status: "ok" });
   }catch(err){
