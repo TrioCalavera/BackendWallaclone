@@ -124,6 +124,31 @@ router.get("/:id", async (req, res, next) => {
     return;
   }
 });
+//Traer anuncios un user
+
+router.get("/user/:id", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+
+    const user = await User.findOne({ _id: id });
+
+    if (!user) {
+      next(createError(404));
+      return;
+    }
+    
+    const adverts = await Advert.find({user : user});
+    if (!adverts) {
+      return res.status(422).json({ error: 'Advert not found'});
+    }
+
+    res.json({ result: adverts });
+
+  } catch (err) {
+    next(err);
+  }
+});
+
 
 // Crear 1 anuncio
 router.post("/", jwtAuth(), upload.single("image"),formValidation.createAddValidator(),  async (req, res, next) => {
