@@ -10,8 +10,16 @@ const jwtAuth = require("../../../lib/jwtAuth");
 
 
 /* GET users listing. */
-router.get("/", async (req, res, next) => {
+router.get("/",jwtAuth(), async (req, res, next) => {
   try {
+
+    const user = await User.findById(req.userId);
+
+    if (user.role !== "admin"){
+      res.status(403).json({ result: "You has no permission." , ok: true });
+      return;
+    }
+      
     const email = req.query.email;
     const name = req.query.name;
     const password = req.query.password;
