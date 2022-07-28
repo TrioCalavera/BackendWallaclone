@@ -85,17 +85,14 @@ router.get("/:id", async (req, res, next) => {
       return;
     }
 
-    const result = {
-        _id: user._id,
-        email: user.email,        
-        name: user.name,        
-    }
     res.json({ 
       result: 
-        {email: user.email,
-         name: user.name, 
-         role: user.role,
-         _id: user._id} 
+        {
+          //email: user.email,
+          name: user.name, 
+          role: user.role,
+          _id: user._id
+        } 
         });
   } catch (err) {
     next(err);
