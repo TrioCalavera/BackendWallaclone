@@ -8,7 +8,17 @@ const Tag = require("../../../models/Tag");
 router.get("/", async (req, res, next) => {
     try {
       const tags = await Tag.getList();
-      res.status(200).json(tags);
+      const tagsDto= [];
+
+      for (let index = 0; index < tags.length; index++) {
+        const element = tags[index];
+        tagsDto[index] = {
+          name : element.name,
+          icon : element.icon,
+        }
+      }
+
+      res.status(200).json(tagsDto);
     } catch (error) {
       next(createError(
         400,

@@ -142,7 +142,7 @@ router.post("/", formValidation.createUserValidator(), async (req, res, next) =>
 
 // DELETE /users/:id
 // Elimina un usuario
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id",jwtAuth(), async (req, res, next) => {
   try {
     const id = req.params.id;
     const user = await User.findOne({ _id: id });
@@ -152,8 +152,15 @@ router.delete("/:id", async (req, res, next) => {
       res.status(404).json({ok: false, error: 'User does not exists'})
       return
     }
-    await User.deleteOne(user)
-    res.status(200).send("User deleted successfully");
+
+    if(req.userId == req.params.id){
+      await User.deleteOne(user)
+      res.status(200).send("User deleted successfully");
+    }else{
+      res.status(403).json({ok: false, error: 'You has no permission.'})
+      return
+    }
+
   } catch (err) {
     next(err);
   }

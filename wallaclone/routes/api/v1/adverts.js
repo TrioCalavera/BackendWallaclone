@@ -219,7 +219,7 @@ router.post("/email", jwtAuth(), async(req, res, next) => {
 })
 // DEL /:id
 // Borrar 1 anuncio
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:id",jwtAuth(), async (req, res, next) => {
   try {
     const id = req.params.id;
     const advert = await Advert.findOne({ _id: id });
@@ -229,9 +229,13 @@ router.delete("/:id", async (req, res, next) => {
       return;
     }
 
-    await Advert.deleteOne({ _id: id });
-
-    res.status(200).json({ result: "Anuncio borrado", status: "ok" });
+    if(req.userId == advert.user){
+      await Advert.deleteOne({ _id: id });
+      res.status(200).json({ result: "Anuncio borrado", status: "ok" });
+    }else{
+      res.status(403).json({ok: false, error: 'You has no permission.'})
+      return
+    }
   } catch (err) {
     next(createError(422, "Invalid Id, not found."));
     return;
